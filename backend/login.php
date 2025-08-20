@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', function() {
 $(function() {
 
       $.backstretch([
-      "assets/login/img/bg.jpeg"
+      "https://www.uinsyahada.ac.id/wp-content/uploads/2024/01/backgroundlogin.jpg"
   ], {duration: 3000, fade: 1000});
 
 

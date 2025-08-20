@@ -1,0 +1,1000 @@
+ 1039  ls
+ 1040  docker ps
+ 1041  docker network ls
+ 1042  ls
+ 1043  ping 103.54.170.71
+ 1044  ping 103.54.170.171
+ 1045  ls
+ 1046  clear
+ 1047  cd /home
+ 1048  ls
+ 1049  mkdir research
+ 1050  cd research/
+ 1051  ls
+ 1052  docker pull droidwiki/php-fpm:latest
+ 1053  docker image ls
+ 1054  docker image rmi 865efb2974e0
+ 1055  docker image ls
+ 1056  cd /var/www/
+ 1057  ls
+ 1058  cd html/
+ 1059  ls
+ 1060  cat index.html 
+ 1061  ./g.sh "ab"
+ 1062  ping google.com
+ 1063  cat /etc/resolv.conf 
+ 1064  ps -eo size,pid,user,command --sort -size | awk '{ hr=$1/1024 ; printf("%13.2f Mb ",hr) } { for ( x=4 ; x<=NF ; x++ ) { printf("%s ",$x) } print "" }' | grep mysql
+ 1065  docker ps
+ 1066  ps aux
+ 1067  htop
+ 1068  docker stats
+ 1069  htop
+ 1070  docker stats
+ 1071  htop
+ 1072  cd /home/web
+ 1073  ls
+ 1074  cd home
+ 1075  ls
+ 1076  cd /home
+ 1077  ls
+ 1078  cd pengembangan/
+ 1079  ls
+ 1080  docker-compose down
+ 1081  docker-compose up -d
+ 1082  htop
+ 1083  cd /home/pengembangan/
+ 1084  ls
+ 1085  docker ps
+ 1086  docker-compose down
+ 1087  docker-compose up -d
+ 1088  htop
+ 1089  cd /home/pengembangan/
+ 1090  ls
+ 1091  cd public/* alumni/
+ 1092  cp public/* alumni/
+ 1093  cp -R public/* alumni/
+ 1094  clear
+ 1095  ls
+ 1096  cd /home/pengembangan/
+ 1097  ls
+ 1098  cd alumni/
+ 1099  ls
+ 1100  ls -la
+ 1101  ls -lh
+ 1102  ls
+ 1103  ls -a
+ 1104  ls -la
+ 1105  cd ..
+ 1106  ls
+ 1107  ls -la
+ 1108  cd public/
+ 1109  ls
+ 1110  ls -la
+ 1111  ls
+ 1112  cd ..
+ 1113  ls
+ 1114  cd alumni/
+ 1115  ls
+ 1116  ls -la
+ 1117  git status
+ 1118  clear
+ 1119  ls
+ 1120  cd ../public/
+ 1121  cat .gitignore 
+ 1122  cp .gitignore ../alumni/
+ 1123  cd ../alumni/
+ 1124  ls
+ 1125  ls -la
+ 1126  git init 
+ 1127  git branch -m main
+ 1128  clear
+ 1129  git commit -m "first commit"
+ 1130  git add *
+ 1131  ls -la
+ 1132  git remote add origin https://github.com/wildantea/alumni.git
+ 1133  git push -u origin main
+ 1134  git push
+ 1135  git push --set-upstream origin main
+ 1136  clear
+ 1137  ls
+ 1138  git remote add origin https://github.com/wildantea/alumni.git
+ 1139  git branch -M main
+ 1140  git push -u origin main
+ 1141  git push -u origin maaster
+ 1142  git branch -b
+ 1143  git branch -l
+ 1144  git branch --list
+ 1145  clear
+ 1146  git branch -b
+ 1147  ls
+ 1148  ls -la
+ 1149  rm -rf .git
+ 1150  ls
+ 1151  ls -la
+ 1152  git init
+ 1153  git add *
+ 1154  git commit -m "first"
+ 1155  git remote add origin https://github.com/wildantea/alumni.git
+ 1156  git push -u origin master
+ 1157  cd ~/.ssh/
+ 1158  ls
+ 1159  ls -la
+ 1160  cd /home/pengembangan/alumni/
+ 1161  git push -u origin master
+ 1162  locate .pub
+ 1163  cat /etc/ssh/ssh_host_rsa_key.pub 
+ 1164  ssh-keygen -t rsa -C "wildannudin@gmail.com" -b 4096
+ 1165  cd /root/.ssh/
+ 1166  ls
+ 1167  cat id_rsa.pub 
+ 1168  cd /home/pengembangan/alumni/
+ 1169  git push
+ 1170  git push -u origin master
+ 1171  ssh-add 
+ 1172  ssh-add
+ 1173  exec ssh-agent bash
+ 1174  git push -u origin master
+ 1175  ssh-add
+ 1176  git push -u origin master
+ 1177  ssh -T git@github.com
+ 1178  git push -u origin master
+ 1179  git remove -v
+ 1180  git remote -v
+ 1181  git remote set-url origin https://github.com/wildantea/alumni.git
+ 1182  git remote -v
+ 1183  git push -u origin master
+ 1184  ssh -T git@github.com
+ 1185  git remote set-url origin git@github.com:wildantea/alumni.git
+ 1186  ssh -T git@github.com
+ 1187  git remote set-url origin git@github.com:wildantea/alumni.git
+ 1188  ssh -T git@github.com
+ 1189  git push -u origin master
+ 1190  clear
+ 1191  cd /home/pengembangan/
+ 1192  docker ps
+ 1193  $(docker inspect pengembangan-mariadb-1 | jq '.[] | .Mounts[].Name, .Mounts[].Source, .Mounts[].Destination')
+ 1194  docker inspect pengembangan-mariadb-1 | jq '.[] | .Mounts[].Name, .Mounts[].Source, .Mounts[].Destination'
+ 1195  docker inspect pengembangan-mariadb-1 
+ 1196  docker volume ls
+ 1197  docker volume create alumni
+ 1198  docker stop pengembangan_maria-data
+ 1199  docker p
+ 1200  docker stop pengembangan-mariadb-1
+ 1201  docker run --rm --volumes-from pengembangan_maria-data -v alumni:/target mariadb:10.7 sh -c "cp - rp /var/lib/mysql/. /target"
+ 1202  docker run --rm --volumes-from pengembangan-mariadb-1 -v alumni:/target mariadb:10.7 sh -c "cp - rp /var/lib/mysql/. /target"
+ 1203  docker run --rm --volumes-from pengembangan-mariadb-1 -v alumni:/target mariadb:10.7 sh -c "cp -rp /var/lib/mysql/. /target"
+ 1204  docker run -d --name alumni -v alumni:/var/lib/mysql -p 3306:3306 mariadb:10.7
+ 1205  docker ps
+ 1206  docker-exec -it alumni sh
+ 1207  docker exec -it alumni sh
+ 1208  docker ps
+ 1209  docker stop alumni
+ 1210  docker rm alumni
+ 1211  docker ps -a
+ 1212  docker-compose down
+ 1213  docker-compose up -d
+ 1214  docker-compose down
+ 1215  docker-compose up -d
+ 1216  docker-compose down
+ 1217  docker-compose up -d
+ 1218  docker-compose down
+ 1219  docker-compose up -d
+ 1220  docker-compose down
+ 1221  docker-compose up -d
+ 1222  docker ps
+ 1223  docker exec -it pengembangan-db_alumni-1 sh
+ 1224  docker-compose down
+ 1225  docker-compose up -d
+ 1226  docker exec -it pengembangan-db_alumni-1 sh
+ 1227  docker ps
+ 1228  docker-compose down
+ 1229  docker-compose up -d
+ 1230  docker ps
+ 1231  docker exec -it pengembangan-db_alumni-1 sh
+ 1232  docker-compose down
+ 1233  docker-compose up -d
+ 1234  docker ps
+ 1235  docker exec -it pengembangan-db_alumni-1 sh
+ 1236  docker ps
+ 1237  docker-compose down
+ 1238  docker-compose up -d
+ 1239  docker exec -it pengembangan-db_alumni-1 sh
+ 1240  docker ps
+ 1241  docker exec -it pengembangan-mariadb-1
+ 1242  docker exec -it pengembangan-mariadb-1 /bin/sh
+ 1243  docker-compose down
+ 1244  docker-compose up -d
+ 1245  docker exec -it pengembangan-db_alumni-1 sh
+ 1246  clear
+ 1247  ls
+ 1248  docker volume ls
+ 1249  docker ps
+ 1250  docker-compose down
+ 1251  docker-compose up -d
+ 1252  docker ps
+ 1253  docker inspect pengembangan-db_alumni-1
+ 1254  docker exec -it pengembangan-db_alumni-1 sh
+ 1255  docker-compose down
+ 1256  docker image ls
+ 1257  docker-compose up -d
+ 1258  docker-compose down
+ 1259  docker-compose up -d
+ 1260  docker logs nginxalumni
+ 1261  docker exec -it nginxalumni bash
+ 1262  docker exec -it nginxalumni sh
+ 1263  docker ps
+ 1264  docker-compose down
+ 1265  docker-compose up -d
+ 1266  docker-compose down
+ 1267  docker-compose up -d
+ 1268  docker ps
+ 1269  docker-compose down
+ 1270  docker-compose up -d
+ 1271  docker-compose down
+ 1272  docker-compose up -d
+ 1273  clear
+ 1274  ls
+ 1275  cd /home/pengembangan/
+ 1276  ls
+ 1277  docker-compose down
+ 1278  docker-compose up -d
+ 1279  docker-compose down
+ 1280  cd /home/pengembangan/
+ 1281  docker-compose down
+ 1282  docker-compose up -d
+ 1283  cd /home/pengembangan/alumni/
+ 1284  ls
+ 1285  chmod -R 777 backend/modul/
+ 1286  ./g.sh "survey"
+ 1287  clear
+ 1288  cd /home/pengembangan/
+ 1289  ls
+ 1290  ls -la
+ 1291  docker-compose ps
+ 1292  docker-compose down
+ 1293  docker-compose up -d
+ 1294  cd alumni/
+ 1295  ls
+ 1296  chmod -R 777 upload/
+ 1297  git status
+ 1298  git add *
+ 1299  git commit -m "second push"
+ 1300  git push
+ 1301  cd /home/pengembangan/alumni/
+ 1302  git status
+ 1303  cat .gitignore 
+ 1304  nano .gitignore 
+ 1305  git status
+ 1306  git add *
+ 1307  git commit -m "push all"
+ 1308  git push
+ 1309  ls
+ 1310  git rm -r --cached .
+ 1311  git add .
+ 1312  git commit -m 'clear git cache'
+ 1313  git push
+ 1314  ls
+ 1315  cd main/
+ 1316  ls
+ 1317  unzip Arsha.zip 
+ 1318  ls
+ 1319  mv Arsha/* .
+ 1320  ls
+ 1321  rm -rf Arsha
+ 1322  rm Arsha.zip 
+ 1323  ls
+ 1324  clear
+ 1325  ls
+ 1326  cd ..
+ 1327  ls
+ 1328  git add *
+ 1329  git commit -m "poho"
+ 1330  git push
+ 1331  git add *
+ 1332  git commit -m "ulangi isi"
+ 1333  git push
+ 1334  git add *
+ 1335  git commit -m "ulangi isi"
+ 1336  git push
+ 1337  git add *
+ 1338  git commit -m "ulangi isi"
+ 1339  git push
+ 1340  git add *
+ 1341  git commit -m "ulangi isi"
+ 1342  git push
+ 1343  git add *
+ 1344  git commit -m "ulangi isi"
+ 1345  git push
+ 1346  git add *
+ 1347  git commit -m "login"
+ 1348  git push
+ 1349  git add *
+ 1350  git commit -m "modif show hide soal"
+ 1351  git push
+ 1352  cd /home/pengembangan/alumni/
+ 1353  ls
+ 1354  cd /root
+ 1355  ls
+ 1356  clear
+ 1357  ls
+ 1358  cat g.sh 
+ 1359  cp g.sh alumni.sh
+ 1360  nano alumni.sh 
+ 1361  cd /home/pengembangan/alumni/
+ 1362  ls
+ 1363  cd /root
+ 1364  ls
+ 1365  cat alumni.sh 
+ 1366  ./alumni.sh 
+ 1367  ./alumni.sh "scroll table"
+ 1368  clear
+ 1369  cd /home/pengembangan/alumni/site/
+ 1370  ls
+ 1371  unzip Impact.zip 
+ 1372  ls
+ 1373  mv Impact/* .
+ 1374  ls
+ 1375  rm -rf Impact
+ 1376  rm Impact.zip 
+ 1377  ls
+ 1378  cat /etc/ssh/sshd_config
+ 1379  nano /etc/ssh/sshd_config
+ 1380  docker ps
+ 1381  cd /home/pengembangan/alumni/
+ 1382  ls
+ 1383  docker-compose up -d
+ 1384  clear
+ 1385  ls
+ 1386  cd /home/pengembangan/alumni/
+ 1387  docker ps
+ 1388  docker-compose down
+ 1389  docker-compose up -d
+ 1390  docker-compose down
+ 1391  docker-compose up -d
+ 1392  docker-compose down
+ 1393  docker-compose up -d
+ 1394  docker-compose down
+ 1395  docker-compose up -d
+ 1396  docker-compose down
+ 1397  docker-compose up -d
+ 1398  k6
+ 1399  apt install k6
+ 1400  clear
+ 1401  snap install k6
+ 1402  k6
+ 1403  ls
+ 1404  nano sc.js
+ 1405  k6 run --insecure-skip-tls-verify --vus 1000 --duration 120s sc.js
+ 1406  clear
+ 1407  nano sc.js 
+ 1408  k6 run --insecure-skip-tls-verify --vus 1000 --duration 120s sc.js
+ 1409  nano sc.js 
+ 1410  k6 run --insecure-skip-tls-verify --vus 1000 --duration 120s sc.js
+ 1411  ls
+ 1412  clear
+ 1413  ls
+ 1414  ./g.sh "uas"
+ 1415  cd /home/pengembangan/alumni/
+ 1416  ls
+ 1417  ls -la
+ 1418  git add *
+ 1419  git commit -m "push baru"
+ 1420  git push
+ 1421  cd /home/pengembangan/alumni/
+ 1422  ls
+ 1423  git status
+ 1424  git add .
+ 1425  git commit -m "laporan survei"
+ 1426  git push
+ 1427  git add .
+ 1428  git commit -m "laporan survei"
+ 1429  git push
+ 1430  git add .
+ 1431  git commit -m "user management"
+ 1432  git push
+ 1433  cd /
+ 1434  ls
+ 1435  cd /root
+ 1436  ls
+ 1437  ./alumni.sh 
+ 1438  ./alumni.sh "foto"
+ 1439  ./alumni.sh "pesan time"
+ 1440  ./alumni.sh "user delete"
+ 1441  ./alumni.sh 
+ 1442  ./alumni.sh "valid"
+ 1443  clear
+ 1444  cd /home/pengembangan/
+ 1445  ls
+ 1446  cd alumni/
+ 1447  ls
+ 1448  ls -la
+ 1449  ls
+ 1450  mkdir web
+ 1451  ls
+ 1452  cd web
+ 1453  ls
+ 1454  clear
+ 1455  wget https://wordpress.org/latest.zip
+ 1456  ls
+ 1457  unzip latest.zip 
+ 1458  ls
+ 1459  mv wordpress/* .
+ 1460  ls
+ 1461  rm -rf wordpress/
+ 1462  rm latest.zip 
+ 1463  clear
+ 1464  ./g.sh "cetak uas"
+ 1465  ./g.sh "update seraching ujian"
+ 1466  ./g.sh "update choices"
+ 1467  ./alumni.sh "update laporan"
+ 1468  ./g.sh "update cetak nilai, judul laporan kuesioner"
+ 1469  ./g.sh "update survey"
+ 1470  ./g.sh "tambah filter status nilai modul nilai perkelas"
+ 1471  ./g.sh "update download berkas"
+ 1472  ./g.sh "update kunci nilai"
+ 1473  ./g.sh "update nilai"
+ 1474  ./g.sh "update"
+ 1475  ./g.sh "update pendaftaran"
+ 1476  cd /home/pengembangan/public/upload/pendaftaran/
+ 1477  ls
+ 1478  ls -la
+ 1479  chmod -R 777 praktek/
+ 1480  cd /home/pengembangan/public/dashboard/assets/plugins/
+ 1481  ls -la
+ 1482  cd tinymce/
+ 1483  clear
+ 1484  ls
+ 1485  df -h
+ 1486  clear
+ 1487  ls
+ 1488  mkdir ansor
+ 1489  cd ansor
+ 1490  wget pwansor.org/alfa.zip
+ 1491  wget pwansorjabar.org/alfa.zip
+ 1492  ls -la
+ 1493  cd /home
+ 1494  ls
+ 1495  cd /root
+ 1496  ls
+ 1497  cd ansor
+ 1498  ls
+ 1499  ls -la
+ 1500  ls -lh
+ 1501  rm alfa.zip
+ 1502  mv alfa.zip.1 ansorweb.zip
+ 1503  ls
+ 1504  ls -lh
+ 1505  ls
+ 1506  mkdir kuesioner
+ 1507  cd kuesioner/
+ 1508  wget survei.iainkerinci.ac.id/kuesioner.zip
+ 1509  ls
+ 1510  cd ..
+ 1511  ls
+ 1512  pwd
+ 1513  ./alumni.sh "add survey prodi baru"
+ 1514  ls
+ 1515  ./g.sh "latest"
+ 1516  ./g.sh "update jatah sks"
+ 1517  clear
+ 1518  ls
+ 1519  cd /home/pengembangan/
+ 1520  ls
+ 1521  ./init-letsencrypt.sh 
+ 1522  docker-compose down
+ 1523  docker-compose up -d
+ 1524  ./g.sh "update krs mobile"
+ 1525  ./g.sh "search menu add clear button"
+ 1526  cd /var/www
+ 1527  ls
+ 1528  wget -r https://gitlab.com/fastwork-project/beasiswa-papua.git
+ 1529  wget https://gitlab.com/fastwork-project/beasiswa-papua.git
+ 1530  ./g.sh "user change"
+ 1531  php -v
+ 1532  cd /var/www/
+ 1533  ls
+ 1534  cd html/
+ 1535  ls
+ 1536  clear
+ 1537  cd /home
+ 1538  ls
+ 1539  cd pengembangan/
+ 1540  ls
+ 1541  cd ..
+ 1542  ls
+ 1543  cd research/
+ 1544  ls
+ 1545  cd ..
+ 1546  ls
+ 1547  cd pengembangan/
+ 1548  ls
+ 1549  cd alumni/
+ 1550  ls
+ 1551  cd ..
+ 1552  zip -r back.zip alumni/
+ 1553  ls
+ 1554  ls -lh
+ 1555  ls
+ 1556  mv back.zip alumni/tracer/
+ 1557  ls
+ 1558  cd alumni/
+ 1559  ls
+ 1560  cd tracer/
+ 1561  ls
+ 1562  clear
+ 1563  ps aux
+ 1564  df -h
+ 1565  clear
+ 1566  df -h
+ 1567  cd /home
+ 1568  ls
+ 1569  ls -la
+ 1570  ls -lh
+ 1571  cd akreditasi_ansor/
+ 1572  ls
+ 1573  ls -la
+ 1574  ls -lh
+ 1575  clear
+ 1576  wget https://shorturl.at/DOU79
+ 1577  df -h
+ 1578  clear
+ 1579  ls
+ 1580  cd /var/www/html/
+ 1581  ls
+ 1582  df -h
+ 1583  ls
+ 1584  cd html/
+ 1585  ls
+ 1586  ls -la
+ 1587  df -h
+ 1588  ls
+ 1589  cd ..
+ 1590  ls
+ 1591  rm index.html 
+ 1592  mv html/* .
+ 1593  ls
+ 1594  rm -rf html/
+ 1595  ls
+ 1596  ls -lh
+ 1597  mysql -u root
+ 1598  cd /home
+ 1599  ls
+ 1600  ls -lh
+ 1601  clear
+ 1602  ls
+ 1603  cd seva
+ 1604  ls
+ 1605  cat seva 
+ 1606  mv seva seva_bot.js
+ 1607  clear
+ 1608  ls
+ 1609  ./g.sh "latest update"
+ 1610  ./g.sh "isi by pembimbing"
+ 1611  ./g.sh "add tanggal hijriah pendaftaran template"
+ 1612  ./g.sh "change css"
+ 1613  ./g.sh "pengaturan pendaftaran action up base on label"
+ 1614  ./g.sh "update edit"
+ 1615  ./g.sh "update status surat"
+ 1616  docker ps
+ 1617  clear
+ 1618  cd /home/pengembangan/
+ 1619  ls
+ 1620  docker-compose ps
+ 1621  docker-compose down
+ 1622  docker-compose up -d
+ 1623  cd /tmp
+ 1624  ls
+ 1625  cd /home/pengembangan/public/upload/
+ 1626  ls
+ 1627  ls /tmp
+ 1628  clear
+ 1629  cd /home/pengembangan/
+ 1630  ls
+ 1631  docker-compose down
+ 1632  docker-compose up -d
+ 1633  docker-compose down
+ 1634  docker-compose up -d
+ 1635  ./g.sh "update add transkrip sementara"
+ 1636  ./g.sh "update print"
+ 1637  ls
+ 1638  pwd
+ 1639  cd /home/pengembangan/public/
+ 1640  ls
+ 1641  ./g.sh "add modul nilai transfer"
+ 1642  cd /var/www/
+ 1643  ls
+ 1644  cd html/
+ 1645  ls
+ 1646  cd submission/
+ 1647  ls
+ 1648  cd dashboard/
+ 1649  ls
+ 1650  clear
+ 1651  ls
+ 1652  cd inc/
+ 1653  ls
+ 1654  ls -la
+ 1655  cd ..
+ 1656  cd /var/www/html/
+ 1657  ls
+ 1658  cat /etc/apt/sources.list
+ 1659  ls
+ 1660  cd /home/pengembangan/public/
+ 1661  ls
+ 1662  cd dashboard/
+ 1663  ls
+ 1664  cd assets/
+ 1665  ls
+ 1666  cd plugins/
+ 1667  wget https://github.com/mozilla/pdf.js/releases/download/v4.0.189/pdfjs-4.0.189-dist.zip
+ 1668  ls
+ 1669  mkdir pdfjs
+ 1670  mv pdfjs-4.0.189-dist.zip pdfjs
+ 1671  cd pdfjs/
+ 1672  ls
+ 1673  unzip pdfjs-4.0.189-dist.zip 
+ 1674  ls
+ 1675  rm pdfjs-4.0.189-dist.zip 
+ 1676  ls
+ 1677  curl https://demosiakad.online/surat/24/Permohonan%20Izin%20Penelitian
+ 1678  curl localhost/surat/24/Permohonan%20Izin%20Penelitian
+ 1679  ping 10.25.96.69
+ 1680  ./g.sh "update surat"
+ 1681  ls
+ 1682  wget https://www.heidisql.com/installers/HeidiSQL_12.6.0.6765_Setup.exe
+ 1683  clear
+ 1684  cd /home/pengembangan/
+ 1685  ls
+ 1686  ./init-letsencrypt.sh 
+ 1687  docker ps
+ 1688  docker-compose down
+ 1689  docker-compose up -d
+ 1690  cd /home
+ 1691  ls
+ 1692  ./g.sh "surat"
+ 1693  ls
+ 1694  cd /home/pengembangan/
+ 1695  ls
+ 1696  ./init-letsencrypt.sh 
+ 1697  docker-compose up -d
+ 1698  docker ps
+ 1699  docker ps -a
+ 1700  docker-compose up -d
+ 1701  docker ps -a
+ 1702  docker-compose up -d
+ 1703  docker ps -a
+ 1704  ./init-letsencrypt.sh 
+ 1705  docker-compose up down
+ 1706  docker-compose down
+ 1707  docker-compose up -d
+ 1708  cd /home
+ 1709  ls
+ 1710  cd akreditasi_ansor/
+ 1711  ls
+ 1712  ls -la
+ 1713  unzip api.zip 
+ 1714  docker ps
+ 1715  ls
+ 1716  cd /home/pengembangan/public/
+ 1717  ls
+ 1718  cd ..
+ 1719  ls
+ 1720  docker-compose up -d
+ 1721  ./g.sh "update pemaraf massal"
+ 1722  ./g.sh "update pendaftaran sisi mahasiswa"
+ 1723  ./g.sh "update pendaftaran mhs"
+ 1724  ./g.sh "update setting template surat css"
+ 1725  ping salam.uinsgd.ac.id
+ 1726  ping bpi.maja.id
+ 1727  ping salam.uinsgd.ac.id
+ 1728  clar
+ 1729  clear
+ 1730  https://account.makaramas.com/auth/realms/bpi/protocol/openid-connect/token
+ 1731  curl https://account.makaramas.com/auth/realms/bpi/protocol/openid-connect/token
+ 1732  ping google.com
+ 1733  curl https://account.makaramas.com/auth/realms/bpi/protocol/openid-connect/token
+ 1734  traceroute salam.uinsgd.ac.id
+ 1735  apt install traceroute
+ 1736  traceroute salam.uinsgd.ac.id
+ 1737  curl salam.uinsgd.ac.id
+ 1738  https://salam.uinsgd.ac.id/api/index.php/bsi/notif
+ 1739  curl https://salam.uinsgd.ac.id/api/index.php/bsi/notif
+ 1740  curl salam.uinsgd.ac.id
+ 1741  curl https://salam.uinsgd.ac.id/api/index.php/bsi/notif
+ 1742  curl salam.uinsgd.ac.id
+ 1743  curl salam.uinsgd.ac.id
+ 1744  curl https://account.makaramas.com/auth/realms/bpi/protocol/openid-connect/token
+ 1745  curl salam.uinsgd.ac.id
+ 1746  clear
+ 1747  curl salam.uinsgd.ac.id
+ 1748  clear
+ 1749  curl salam.uinsgd.ac.id
+ 1750  curl https://dev.uinsgd.site/bsi_cek.php
+ 1751  curl salam.uinsgd.ac.id
+ 1752  docker ps
+ 1753  clear
+ 1754  docker ps
+ 1755  curl localhost
+ 1756  ls
+ 1757  cd /home/pengembangan/
+ 1758  ls
+ 1759  docker-compose up -d
+ 1760  docker ps
+ 1761  ping siakad.iainkerinci.ac.id
+ 1762  clear
+ 1763  ping ping siakad.iainkerinci.ac.id
+ 1764  ping siakad.iainkerinci.ac.idping siakad.iainkerinci.ac.idping siakad.iainkerinci.ac.idping siakad.iainkerinci.ac.id
+ 1765  ping siakad.iainkerinci.ac.id
+ 1766  nslookup siakad.iainkerinci.ac.id
+ 1767  traceroute siakad.iainkerinci.ac.id
+ 1768  nslookup siakad.iainkerinci.ac.id
+ 1769  ping siakad.iainkerinci.ac.id
+ 1770  ping https://siakad.iainkerinci.ac.id/
+ 1771  ping siakad.iainkerinci.ac.id
+ 1772  nproc -all
+ 1773  nproc
+ 1774  ./g.sh "update persuratan"
+ 1775  ./g.sh "tendik change"
+ 1776  ping 103.117.56.4
+ 1777  clear
+ 1778  wget -qO- bench.sh | bash
+ 1779  ssh siakad@103.117.56.4
+ 1780  ifconfig -a
+ 1781  apt install net-tools
+ 1782  ifconfig -a
+ 1783  cd /home/pengembangan/public/dashboard/modul/excel/
+ 1784  chmod -R 777 result/
+ 1785  ./g.sh "update tendik add import"
+ 1786  ./g.sh "update template tendik"
+ 1787  cd /home/pengembangan/public/
+ 1788  ls
+ 1789  clear
+ 1790  ls
+ 1791  cd ..
+ 1792  ls
+ 1793  nano docker-compose.yml 
+ 1794  docker-compose stop
+ 1795  nano docker-compose.yml 
+ 1796  docker-compose up -d
+ 1797  nano docker-compose.yml 
+ 1798  ls
+ 1799  cd config
+ 1800  ls
+ 1801  cat slow_log.txt/
+ 1802  cd slow_log.txt/
+ 1803  ls
+ 1804  cd ..
+ 1805  docker-compose stop
+ 1806  nano docker-compose.yml 
+ 1807  docker-compose up -d
+ 1808  ls
+ 1809  cd config
+ 1810  ls
+ 1811  cat slow_log.txt/
+ 1812  ls -la
+ 1813  cd ..
+ 1814  llllls
+ 1815  ls
+ 1816  docker-compose stop
+ 1817  nano docker-compose.yml 
+ 1818  docker-compose start
+ 1819  cd config
+ 1820  ls
+ 1821  ls -la
+ 1822  docker ps
+ 1823  docker exec -it 8c6e965de6dd /bin/sh
+ 1824  ./g.sh "update surat"
+ 1825  cd config
+ 1826  ls
+ 1827  cd /home/pengembangan/
+ 1828  ls
+ 1829  cd config
+ 1830  ls
+ 1831  ls -lh
+ 1832  ls
+ 1833  ./g.sh "update nilai input komponen"
+ 1834  ./g.sh "validasi semester"
+ 1835  ./g.sh "loading tanda tangan fixing"
+ 1836  clear
+ 1837  ls
+ 1838  cd /home/pengembangan/public/
+ 1839  ls
+ 1840  cd dashboard/
+ 1841  ls
+ 1842  zip -R modul/ modul.zip
+ 1843  zip -r  modul.zip modul/
+ 1844  ls
+ 1845  rm modul.zip 
+ 1846  cd /home/pengembangan/public/dashboard/assets/plugins/
+ 1847  ls
+ 1848  unzip PDFJSExpress-view-only.zip 
+ 1849  ls
+ 1850  ls -la
+ 1851  ls -lh
+ 1852  ls
+ 1853  cd PDFJSExpress-view-only/
+ 1854  ls
+ 1855  cd lib
+ 1856  ls
+ 1857  cd ..
+ 1858  ls
+ 1859  cd lib
+ 1860  ls
+ 1861  cd i
+ 1862  cd ui
+ 1863  ls
+ 1864  cd ..
+ 1865  ls
+ 1866  cd ..
+ 1867  ls
+ 1868  cd samples/
+ 1869  ls
+ 1870  cd viewing/
+ 1871  ls
+ 1872  cd viewing/
+ 1873  ls
+ 1874  cd ../../
+ 1875  ls
+ 1876  cat index.html 
+ 1877  ./g.sh "update pengumuman"
+ 1878  clear
+ 1879  cd /home
+ 1880  ls
+ 1881  cd pengembangan/
+ 1882  ls
+ 1883  ./init-letsencrypt.sh 
+ 1884  locate -a
+ 1885  locale -a
+ 1886  locale-gen id_ID
+ 1887  locale-gen id_ID.UTF-8
+ 1888  update-locale
+ 1889  locale -a
+ 1890  clear
+ 1891  ls
+ 1892  docker ps
+ 1893  docker-exec -it 57712fea3cfa /bin/sh
+ 1894  docker exec -it 577
+ 1895  docker-exec  57712fea3cfa date 
+ 1896  docker exec  57712fea3cfa date 
+ 1897  docker-exec -it 57712fea3cfa /bin/sh
+ 1898  apt-get update && apt-get install -y locales &&     locale-gen id_ID.UTF-8 &&     update-locale LANG=id_ID.UTF-8
+ 1899  locale -a
+ 1900  clear
+ 1901  docker exec  57712fea3cfa d
+ 1902  docker exec -it 57712fea3cfa /bin/sh
+ 1903  ./g.sh "tendik kerja"
+ 1904  ./g.sh "update tendik"
+ 1905  ./g.sh "update tendik catatan"
+ 1906  ./g.sh "update tendik"
+ 1907  ./g.sh "update jobdesc"
+ 1908  ./g.sh "update laporan kerja"
+ 1909  ./g.sh "update view pendaftaran"
+ 1910  clear
+ 1911  ./g.sh "update jobdesc"
+ 1912  ./g.sh "update survey multiple dosen pagawai download surat"
+ 1913  ./g.sh "update cetak uts uas, add survey"
+ 1914  ./g.sh "update cetak bap presensi sisi dosen, add survey"
+ 1915  ./g.sh "krs mahasiswa, add survey"
+ 1916  ./g.sh "update jobdesc filter"
+ 1917  ./g.sh "update chart js link"
+ 1918  ls
+ 1919  clear
+ 1920  lx
+ 1921  ls
+ 1922  cd /home/pengembangan/
+ 1923  ls
+ 1924  cd public/
+ 1925  ls
+ 1926  ./g.sh "update pendaftaran dosen"
+ 1927  ./g.sh "update preview surat mahasiswa"
+ 1928  ./g.sh "update pendaftaran dosen"
+ 1929  ./g.sh "update sorting page"
+ 1930  ./g.sh "update kegiatan"
+ 1931  ./g.sh "update kegiatan mahasiswa"
+ 1932  ./g.sh "update adda jdawal sidang ruangan"
+ 1933  ls
+ 1934  cd /home
+ 1935  ls
+ 1936  cd pengembangan/
+ 1937  ls
+ 1938  ./init-letsencrypt.sh 
+ 1939  cd /etc/letsencrypt
+ 1940  /etc/letsencrypt/live/demosiakad.site/
+ 1941  cd /etc/letsencrypt/live/demosiakad.site/
+ 1942  ls
+ 1943  cd config
+ 1944  ls
+ 1945  cd ..
+ 1946  cd certbot/
+ 1947  ls
+ 1948  cd conf/
+ 1949  ls
+ 1950  cd live/
+ 1951  ls
+ 1952  cd demosiakad.site/
+ 1953  ls
+ 1954  ls -la
+ 1955  cd /home/pengembangan/
+ 1956  ls
+ 1957  docker-compose down
+ 1958  docker-compose up -d
+ 1959  ls
+ 1960  cd /home/pengembangan/
+ 1961  ls
+ 1962  ./init-letsencrypt.sh 
+ 1963  cd /home/pengembangan/
+ 1964  ls
+ 1965  cd public/upload/
+ 1966  chmod -R 777 qr
+ 1967  ssh root@103.127.137.169
+ 1968  ssh root@103.127.137.169
+ 1969  clear
+ 1970  ls
+ 1971  cd /home/pengembangan/
+ 1972  ls
+ 1973  cd ..
+ 1974  ls
+ 1975  clear
+ 1976  ls
+ 1977  cd pengembangan/
+ 1978  ls
+ 1979  cd /home
+ 1980  ls
+ 1981  history
+ 1982  ls
+ 1983  cd pengembangan/
+ 1984  ls
+ 1985  ls -la
+ 1986  cd /home
+ 1987  ls
+ 1988  cd ..
+ 1989  ls
+ 1990  cd root
+ 1991  ls
+ 1992  ./g.sh "update ktm"
+ 1993  ./g.sh "update ktm"
+ 1994  ./g.sh "update kegiatan mhs"
+ 1995  ./g.sh "update dashboard"
+ 1996  ./g.sh "update dashboard new"
+ 1997  apt-get update
+ 1998  ./g.sh "updat epertanyaan"
+ 1999  ./g.sh "pindah status pertemuan ke tab presensi dari tab pertemuan"
+ 2000  ls
+ 2001  cd /home/pengembangan/
+ 2002  ls
+ 2003  docker ps
+ 2004  clear
+ 2005  ls
+ 2006  cat docker-compose.yml 
+ 2007  certtbot
+ 2008  certbot
+ 2009  clear
+ 2010  ls
+ 2011  ./certbot/
+ 2012  certbot
+ 2013  cd certbot/
+ 2014  ls
+ 2015  cd conf/
+ 2016  ls
+ 2017  cd ../
+ 2018  ls
+ 2019  cd ..
+ 2020  ls
+ 2021  cd config
+ 2022  ls
+ 2023  cat my.cnf 
+ 2024  ls
+ 2025  cd supervisor/
+ 2026  ls
+ 2027  cat supervisord.conf 
+ 2028  cd ../nginx/
+ 2029  ls
+ 2030  clear
+ 2031  ls
+ 2032  cat default.conf 
+ 2033  ls
+ 2034  nano default.conf 
+ 2035  certbot
+ 2036  clear
+ 2037  history
+ 2038  history > his.txt

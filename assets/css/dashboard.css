@@ -1,0 +1,144 @@
+/* Dashboard Styles for PHP Version */
+body {
+    background-color: #f8f9fc;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    color: #5a5c69;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-overlay.d-none {
+    display: none !important;
+}
+
+/* Card Enhancements */
+.card {
+    border: none;
+    border-radius: 0.35rem;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+/* Border Left Cards */
+.border-left-primary {
+    border-left: 0.25rem solid #4e73df !important;
+}
+
+.border-left-success {
+    border-left: 0.25rem solid #1cc88a !important;
+}
+
+.border-left-info {
+    border-left: 0.25rem solid #36b9cc !important;
+}
+
+.border-left-warning {
+    border-left: 0.25rem solid #f6c23e !important;
+}
+
+/* Text Colors */
+.text-primary {
+    color: #5a5c69 !important;
+}
+
+.text-gray-800 {
+    color: #5a5c69 !important;
+}
+
+.text-gray-300 {
+    color: #dddfeb !important;
+}
+
+.text-xs {
+    font-size: 0.7rem;
+}
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-container canvas {
+    max-height: 300px;
+}
+
+/* Table Enhancements */
+.table thead th {
+    background-color: #f8f9fc;
+    border-color: #e3e6f0;
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #5a5c69;
+}
+
+.table tbody td {
+    font-size: 0.875rem;
+    color: #5a5c69;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: 700;
+}
+
+/* Buttons */
+.btn-sm {
+    font-size: 0.8125rem;
+}
+
+/* Shadow */
+.shadow {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 250px;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .h5 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Alert styling */
+.alert {
+    margin-bottom: 1rem;
+}
+
+/* Status badges */
+.badge {
+    font-size: 0.75rem;
+}
+
+/* Loading states */
+.btn:disabled {
+    opacity: 0.6;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}

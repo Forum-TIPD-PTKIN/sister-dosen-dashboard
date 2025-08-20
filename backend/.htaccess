@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /backend/
+
+    # Jika file/direktori ada, langsung akses
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Jika tidak ada, lempar ke backend/index.php
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+DirectoryIndex index.php index.html index.htm

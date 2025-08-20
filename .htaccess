@@ -2,11 +2,21 @@
     RewriteEngine On
     RewriteBase /
 
+    # ==== Untuk root (/) ====
     # Jika file atau folder ada, langsung akses
     RewriteCond %{REQUEST_FILENAME} -f [OR]
     RewriteCond %{REQUEST_FILENAME} -d
     RewriteRule ^ - [L]
 
-    # Jika tidak ada, lempar ke index.php dengan query string
+    # Jika tidak ada, lempar ke index.php
     RewriteRule ^ index.php [L]
+
+    # ==== Untuk /backend ====
+    RewriteCond %{REQUEST_URI} ^/backend
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^backend/(.*)$ backend/index.php [L]
 </IfModule>
+
+# Tambahan index file default
+DirectoryIndex index.php index.html index.htm

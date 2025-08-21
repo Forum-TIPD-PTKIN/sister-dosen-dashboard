@@ -323,7 +323,6 @@ function getStatusBadgeColor($status) {
                                     <tr>
                                         <th>Nama</th>
                                         <th>NUPTK</th>
-                                        <th>NIP</th>
                                         <th>Pendidikan Terakhir</th>
                                         <th>Home Base</th>
                                         <th>Aksi</th>
@@ -339,7 +338,6 @@ foreach ($result as $row): ?>
     <tr>
         <td><?php echo htmlspecialchars($row->nama_dengan_gelar); ?></td>
         <td><?php echo htmlspecialchars($row->nuptk); ?></td>
-        <td><?php echo htmlspecialchars($row->nip); ?></td>
         <td><?php echo htmlspecialchars($row->pendidikan_terakhir); ?></td>
         <td><?php echo htmlspecialchars(str_replace('Program Studi ', '', $row->home_base)); ?></td>
         <td>

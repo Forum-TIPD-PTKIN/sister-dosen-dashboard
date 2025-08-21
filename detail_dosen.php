@@ -4,8 +4,6 @@ require_once 'includes/config.php';
 include "includes/sinta.php";
 $nama_gelar = $db->fetchSingleRow('view_nama_gelar', 'id_sdm', $id_sdm)->nama_dengan_gelar ?? '';
 
-//get email
-$email = $api->getAlamat($id_sdm)['email'];
 
 // --- Get author name from $dosen, remove after comma if present ---
 $author_name = $dosen->nama_sdm ?? '';
@@ -302,7 +300,7 @@ foreach($trend as $tahun=>$data){
                 $nuptk = $detail->nuptk ?? '-';
                 $nip = $detail->nip ?? '-';
                 $home_base = $detail->home_base ?? ($dosen->home_base ?? '-');
-                $email = $email ?? '-';
+               
                 // Get bidang ilmu from endpoint
                 $bidang_ilmu = '-';
                 $bidang_ilmu_data = $api->getBidangIlmu($id_sdm);
@@ -337,10 +335,6 @@ foreach($trend as $tahun=>$data){
                                 <tr>
                                     <td class="font-semibold text-gray-700 w-40 align-middle"><i class="fas fa-university text-purple-500 mr-2"></i>HomeBase</td>
                                     <td class="text-gray-800 align-middle"><?= $home_base ?></td>
-                                </tr>
-                                <tr>
-                                    <td class="font-semibold text-gray-700 w-40 align-middle"><i class="fas fa-envelope text-pink-500 mr-2"></i>Email</td>
-                                    <td class="text-gray-800 align-middle"><?= $email ?></td>
                                 </tr>
                                 <tr>
                                     <td class="font-semibold text-gray-700 w-40 align-middle"><i class="fas fa-book text-yellow-500 mr-2"></i>Bidang Ilmu</td>

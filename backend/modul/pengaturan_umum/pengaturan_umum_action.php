@@ -85,7 +85,7 @@ case "up":
         if(isset($_FILES["gambar"]["name"])) {
             $bucket = $auth->bucket;
 
-            $endpoint = 'https://is3.cloudhost.id';
+            $endpoint = $auth->url;
             
             $s3 = new Aws\S3\S3Client([
             

@@ -1,1 +1,5 @@
 backend/inc/config.php
+includes/config.php
+.DS_Store
+**/.DS_Store
+/cache/search_*.json

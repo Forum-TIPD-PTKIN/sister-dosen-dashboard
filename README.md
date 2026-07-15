@@ -140,3 +140,4 @@ Data yang diperoleh dari endpoint pribadi SISTER harus diperlakukan sebagai data
 
 - [Dokumentasi SISTER Web Service](https://sister-api.kemdiktisaintek.go.id/ws.php/1.0)
 - [Spesifikasi OpenAPI SISTER](wsv1.yaml)
+- [Demo Halaman Sister Dosen Dashboard](https://dosen.uinsyahada.ac.id)

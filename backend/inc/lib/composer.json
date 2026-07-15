@@ -1,13 +1,7 @@
 {
-    "name": "backend",
+    "name": "sister/dosen-dashboard",
     "description": "my tool",
     "require": {
-        "google/apiclient": "^2.11",
-        "pear/mail_mime": "dev-master",
-        "pear/mail_mime-decode": "dev-master",
-        "pear/pear_exception": "dev-master",
-        "bramus/router": "~1.4",
-        "rakit/validation": "^0.22.3",
         "aws/aws-sdk-php": "^3.247"
     },
     "config": {

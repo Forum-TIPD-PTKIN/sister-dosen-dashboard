@@ -1,5 +1,6 @@
 <?php
-function findScore($author_name) {
+function findScore($author_name)
+{
     global $api_key, $cse_id;
 
     // Generate a unique cache file name based on the author name
@@ -9,12 +10,12 @@ function findScore($author_name) {
     // Check if cache exists and is not expired
     if (file_exists($cache_file) && (time() - filemtime($cache_file)) < $cache_duration) {
         $response = file_get_contents($cache_file);
-        
+
     } else {
         // Make API request
         $url = "https://customsearch.googleapis.com/customsearch/v1?key=$api_key&cx=$cse_id&q=" . urlencode($author_name);
         $response = @file_get_contents($url);
-        
+
         // Save to cache if request is successful
         if ($response !== false) {
             // Ensure cache directory exists
@@ -42,7 +43,7 @@ function findScore($author_name) {
                 $result['scopus'] = $scopus_match[1] ?? 'Not found';
                 preg_match('/GS H-Index\s*:\s*(\d+)/', $content, $gs_match);
                 $result['google'] = $gs_match[1] ?? 'Not found';
-                preg_match_all('/(\d+)\. SINTA/', $content, $sinta_matches); 
+                preg_match_all('/(\d+)\. SINTA/', $content, $sinta_matches);
                 $result['sinta'] = isset($sinta_matches[1][1]) ? $sinta_matches[1][1] : 'Not found';
                 // Ambil ID setelah "ID :"
                 preg_match('/ID\s*:\s*(\d+)/', $content, $id_match);
@@ -52,5 +53,7 @@ function findScore($author_name) {
     }
 
     return $result;
+
+
 }
 ?>

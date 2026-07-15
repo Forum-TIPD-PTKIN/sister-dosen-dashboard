@@ -6,10 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Mail_mimeDecode' => array($vendorDir . '/pear/mail_mime-decode'),
-    'Mail' => array($vendorDir . '/pear/mail_mime'),
-    'Console' => array($vendorDir . '/pear/console_getopt'),
-    'Bramus' => array($vendorDir . '/bramus/router/src'),
     'Backend\\' => array($baseDir . '/src'),
-    '' => array($vendorDir . '/pear/pear-core-minimal/src'),
 );

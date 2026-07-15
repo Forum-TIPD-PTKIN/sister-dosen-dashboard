@@ -346,7 +346,7 @@ foreach ($trend as $tahun => $data) {
                 $detail = $db->fetchSingleRow('view_sdm_details', 'id_sdm', $id_sdm);
                 $nidn = $detail->nidn ?? '-';
                 $nuptk = $detail->nuptk ?? '-';
-                $nip = $detail->nip ?? '-';
+                // $nip = $detail->nip ?? '-';
                 $home_base = $detail->home_base ?? ($dosen->home_base ?? '-');
 
                 // Get bidang ilmu from endpoint

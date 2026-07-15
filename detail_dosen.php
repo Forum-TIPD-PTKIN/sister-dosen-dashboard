@@ -369,7 +369,7 @@ foreach ($trend as $tahun => $data) {
                     <div class="mt-2 text-sm">
                         <table class="min-w-full text-left border-separate border-spacing-y-2">
                             <tbody>
-                                <tr>
+                             <!--   <tr>
                                     <td class="font-semibold text-gray-700 w-40 align-middle"><i
                                             class="fas fa-id-card text-blue-500 mr-2"></i>NIDN</td>
                                     <td class="text-gray-800 align-middle"><?= $nidn ?></td>
@@ -383,7 +383,7 @@ foreach ($trend as $tahun => $data) {
                                     <td class="font-semibold text-gray-700 w-40 align-middle"><i
                                             class="fas fa-id-badge text-blue-700 mr-2"></i>NIP</td>
                                     <td class="text-gray-800 align-middle"><?= $nip ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td class="font-semibold text-gray-700 w-40 align-middle"><i
                                             class="fas fa-university text-purple-500 mr-2"></i>HomeBase</td>

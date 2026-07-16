@@ -69,7 +69,7 @@ Backend admin menyediakan area pengelolaan data lokal, pengguna, kelompok akses,
 
 ```mermaid
 flowchart LR
-    User["Pengguna"] --> Dashboard["Dashboard PHP"]
+    User["Pengguna"] --> Dashboard["Dashboard User"]
     Dashboard -->|"Membaca data"| Database[("MySQL")]
     Admin["Administrator"] --> Backend["Backend Admin"]
     Backend --> Sync["Proses Sinkronisasi"]

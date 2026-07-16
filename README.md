@@ -70,15 +70,12 @@ Backend admin menyediakan area pengelolaan data lokal, pengguna, kelompok akses,
 ```mermaid
 flowchart LR
     User["Pengguna"] --> Dashboard["Dashboard PHP"]
-    Dashboard --> Database[("MySQL")]
+    Dashboard -->|"Membaca data"| Database[("MySQL")]
     Admin["Administrator"] --> Backend["Backend Admin"]
     Backend --> Sync["Proses Sinkronisasi"]
-    Sync --> SisterClient["SISTER API Client"]
-    SisterClient --> SisterWS["SISTER Web Service"]
-    SisterWS --> SisterClient
-    SisterClient --> Sync
-    Sync --> Database
-    Backend --> Database
+    Sync <-->|"Autentikasi dan data"| SisterWS["SISTER Web Service"]
+    Sync -->|"Menyimpan hasil"| Database
+    Backend -->|"Mengelola data"| Database
     Backend -. opsional .-> Storage["S3-compatible Storage"]
 ```
 

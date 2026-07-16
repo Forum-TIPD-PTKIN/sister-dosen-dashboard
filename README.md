@@ -70,19 +70,23 @@ Backend admin menyediakan area pengelolaan data lokal, pengguna, kelompok akses,
 ```mermaid
 flowchart LR
     User["Pengguna"] --> Dashboard["Dashboard PHP"]
-    Admin["Administrator"] --> Backend["Backend Admin"]
-    Dashboard --> InternalAPI["API Internal"]
-    InternalAPI --> SisterClient["SISTER API Client"]
-    SisterClient --> SisterWS["SISTER Web Service"]
     Dashboard --> Database[("MySQL")]
+    Admin["Administrator"] --> Backend["Backend Admin"]
+    Backend --> Sync["Proses Sinkronisasi"]
+    Sync --> SisterClient["SISTER API Client"]
+    SisterClient --> SisterWS["SISTER Web Service"]
+    SisterWS --> SisterClient
+    SisterClient --> Sync
+    Sync --> Database
     Backend --> Database
     Backend -. opsional .-> Storage["S3-compatible Storage"]
 ```
 
-1. Aplikasi meminta token akses ke layanan autentikasi SISTER.
-2. Token digunakan oleh client internal untuk mengambil data melalui endpoint SISTER.
-3. Data ditampilkan pada dashboard atau disimpan ke database lokal melalui proses sinkronisasi.
-4. Backend admin mengelola data lokal dan pengaturan aplikasi sesuai permission pengguna.
+1. Administrator masuk ke backend dan menjalankan proses sinkronisasi.
+2. Proses sinkronisasi melakukan autentikasi lalu mengambil data melalui SISTER Web Service.
+3. Data hasil sinkronisasi disimpan ke database MySQL lokal.
+4. Pengguna membuka dashboard untuk melihat data yang tersedia di MySQL tanpa mengakses API SISTER secara langsung.
+5. Backend admin digunakan untuk mengelola data lokal dan pengaturan aplikasi sesuai permission administrator.
 
 ## Teknologi
 

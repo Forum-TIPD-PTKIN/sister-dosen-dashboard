@@ -26,8 +26,10 @@
                         </div></div><div class='col-md-1' id="message"><span class='current-count'>1</span>/<span class="total-count">13</span></div></div>
                       <div class="alert alert-danger alert-dismissible" id="ada_error" style="display: none">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-ban"></i> Error! Contact saya ke wildannudin@gmail.com, screenshoot, kasih tahu saya error dibawah</h4><span class="isi_error"></span>
+                <h4><i class="icon fa fa-ban"></i> Error! Laporkan Bug dan kendala di https://github.com/Forum-TIPD-PTKIN/sister-dosen-dashboard </h4><span class="isi_error"></span>
               </div>
+
+                                 
                 <button class="btn btn-primary btn-flat down_feeder_portal"><i class="fa fa-cloud-download"></i> Download Update Dari Sister</button> 
                             </div><!-- /.box-header -->
                             <div class="box-body">

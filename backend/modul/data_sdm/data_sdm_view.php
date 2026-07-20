@@ -164,25 +164,55 @@ function total_down() {
           $("#show_progress").show();
           $("#down_kelas").attr("disabled", true);
           var start_time = new Date().getTime();
-          var totaldata;
+          $(".current-count").html(0);
+          $(".total-count").html(1);
+          proses(10);
+          $.ajax({
+            url: "<?=base_admin();?>modul/data_sdm/sync_full.php",
+            type: "post",
+            dataType: "json",
+            timeout: 0,
+            success: function(response) {
+              $("#loadnya").hide();
+              proses(100);
+              $(".current-count").html(1);
+              $(".total-count").html(1);
 
-         
-             $.ajax({
-              //url: "http://localhost/datamahasiswa/get_jumlah.php",
-              url: "<?=base_admin();?>/modul/data_sdm/get_jumlah.php",
-              type : "post",
-              dataType: 'json',
-              'async':false,
-              success: function(data) {
-
-                console.log(data);
-                 totaldata = data.jumlah;
-                  total_data = parseInt(totaldata);
-                  var bagi = Math.ceil(total_data/5);
-                    
-                    getDataDown(bagi,total_data,start_time);
+              if (!response.success) {
+                $("#ada_error").show();
+                $(".isi_error").html(response.message || "Sinkronisasi gagal.");
+                return;
               }
-            });
+
+              var end_time = new Date().getTime();
+              var waktu = "Total Waktu Download : " + millisToMinutesAndSeconds(end_time - start_time);
+              var data = response.data || {};
+              var pesan = "Sinkronisasi selesai<br>" +
+                "SDM: " + (data.sdm || 0) + "<br>" +
+                "Penelitian: " + (data.penelitian || 0) + "<br>" +
+                "Publikasi: " + (data.publikasi || 0) + "<br>" +
+                "HKI: " + (data.hki || 0) + "<br>" +
+                "Pengabdian: " + (data.pengabdian || 0) + "<br>" +
+                "Pendidikan: " + (data.pendidikan || 0) + "<br>" +
+                "Penugasan/Homebase: " + (data.penugasan || 0) + "<br>" +
+                "Jabatan Fungsional: " + (data.jabatan_fungsional || 0) + "<br>" +
+                waktu;
+
+              if ($("#informasi_upload").length) {
+                $("#isi_informasi_upload").html(pesan);
+                $("#informasi_upload").modal("show");
+              } else {
+                alert(pesan.replace(/<br>/g, "\n"));
+              }
+
+              dtb_data_sdm.ajax.reload();
+            },
+            error: function(xhr) {
+              $("#loadnya").hide();
+              $("#ada_error").show();
+              $(".isi_error").html(xhr.responseText || "Sinkronisasi gagal.");
+            }
+          });
  
 }
 

@@ -1,6 +1,12 @@
 <?php
 // Initialize dashboard data
 $dashboardData = [];
+
+function rowsOrEmpty($result)
+{
+    return (is_array($result) || $result instanceof Traversable) ? $result : [];
+}
+
 try {
     $dashboardData['sdm'] = $api->getSDM();
     // SDM per Unit Kerja
@@ -8,7 +14,7 @@ try {
 $dashboardData = [];
 try {
     // Get jumlah dosen from tb_ref_sdm
-    $sql = "SELECT COUNT(*) AS jml FROM view_nama_gelar where view_nama_gelar.nama_dengan_gelar IS NOT NULL";
+    $sql = "SELECT COUNT(*) AS jml FROM view_sdm";
     $result = $db->fetchCustomSingle($sql);
     $dashboardData['sdm_count'] = ($result && $result->jml > 0) ? (int)$result->jml : 0;
 
@@ -24,7 +30,7 @@ try {
     $dashboardData['jabatanFungsional'] = [];
     $sql = "SELECT COUNT(*) AS jml, COALESCE(jafung, 'Lainnya') AS jafung FROM view_sdm_jabatan_fungsional GROUP BY jafung";
     $result = $db->query($sql);
-    foreach ($result as $row) {
+    foreach (rowsOrEmpty($result) as $row) {
         $dashboardData['jabatanFungsional'][] = [
             'nama' => $row->jafung,
             'jumlah' => (int)$row->jml
@@ -34,7 +40,7 @@ try {
     $dashboardData['jenjangPendidikan'] = [];
     $sql = "SELECT COUNT(*) AS jml, pendidikan FROM view_sdm_pendidikan where  pendidikan is not null GROUP BY pendidikan";
     $result = $db->query($sql);
-    foreach ($result as $row) {
+    foreach (rowsOrEmpty($result) as $row) {
         $dashboardData['jenjangPendidikan'][] = [
             'nama' => $row->pendidikan,
             'jumlah' => (int)$row->jml
@@ -82,7 +88,7 @@ try {
     $dashboardData['unitKerja'] = [];
     $sql = "SELECT COUNT(*) AS jml, unit_kerja FROM tb_ref_sdm_penugasan GROUP BY unit_kerja";
     $result = $db->query($sql);
-    foreach ($result as $row) {
+    foreach (rowsOrEmpty($result) as $row) {
         $dashboardData['unitKerja'][] = [
             'nama' => str_replace('Program Studi ', '', $row->unit_kerja),
             'jumlah' => (int)$row->jml
@@ -93,7 +99,7 @@ try {
     $dashboardData['jabatanFungsional'] = [];
     $sql = "SELECT COUNT(*) AS jml, COALESCE(jafung, 'Lainnya') AS jafung FROM view_sdm_jabatan_fungsional GROUP BY jafung";
     $result = $db->query($sql);
-    foreach ($result as $row) {
+    foreach (rowsOrEmpty($result) as $row) {
         $dashboardData['jabatanFungsional'][] = [
             'nama' => $row->jafung,
             'jumlah' => (int)$row->jml
@@ -104,7 +110,7 @@ try {
     $dashboardData['jenjangPendidikan'] = [];
     $sql = "SELECT COUNT(*) AS jml, pendidikan FROM view_sdm_pendidikan where pendidikan is not null GROUP BY pendidikan";
     $result = $db->query($sql);
-    foreach ($result as $row) {
+    foreach (rowsOrEmpty($result) as $row) {
         $dashboardData['jenjangPendidikan'][] = [
             'nama' => $row->pendidikan,
             'jumlah' => (int)$row->jml
@@ -256,7 +262,7 @@ function getStatusBadgeColor($status) {
                                         $sql = "SELECT COUNT(*) AS jml, unit_kerja FROM tb_ref_sdm_penugasan GROUP BY unit_kerja";
     $result = $db->query($sql);
     ?>
-                                    <?php foreach ($result as $row): ?>
+                                    <?php foreach (rowsOrEmpty($result) as $row): ?>
                                         <tr>
                                             <td><?php echo htmlspecialchars(str_replace('Program Studi ', '', $row->unit_kerja)); ?></td>
                                             <td><?php echo number_format((int)$row->jml); ?></td>
@@ -330,11 +336,9 @@ function getStatusBadgeColor($status) {
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT view_nama_gelar.nama_dengan_gelar, vd.nuptk, vd.pendidikan_terakhir, vd.home_base, vd.id_sdm FROM view_sdm vd inner join view_nama_gelar using(id_sdm)";
-// Add NIP to select
-$sql = "SELECT view_nama_gelar.nama_dengan_gelar, vd.nuptk, vd.nip, vd.pendidikan_terakhir, vd.home_base, vd.id_sdm FROM view_sdm vd inner join view_nama_gelar using(id_sdm) where view_nama_gelar.nama_dengan_gelar IS NOT NULL order by jafung desc,pendidikan_terakhir desc";
+                                    $sql = "SELECT COALESCE(view_nama_gelar.nama_dengan_gelar, vd.nama_sdm) AS nama_dengan_gelar, vd.nuptk, vd.nip, vd.pendidikan_terakhir, vd.home_base, vd.id_sdm FROM view_sdm vd LEFT JOIN view_nama_gelar USING(id_sdm) ORDER BY jafung DESC, pendidikan_terakhir DESC, vd.nama_sdm ASC";
 $result = $db->query($sql);
-foreach ($result as $row): ?>
+foreach (rowsOrEmpty($result) as $row): ?>
     <tr>
         <td><?php echo htmlspecialchars($row->nama_dengan_gelar); ?></td>
         <td><?php echo htmlspecialchars($row->nuptk); ?></td>

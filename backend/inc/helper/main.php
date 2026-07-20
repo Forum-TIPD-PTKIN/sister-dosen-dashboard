@@ -23,7 +23,7 @@ function getPengaturan($short_name)
 {
     global $db;
     $pengaturan = $db->fetchSingleRow('tb_master_pengaturan_umum', "short_name", $short_name);
-    if ($pengaturan->isi_pengaturan!="") {
+    if ($pengaturan && $pengaturan->isi_pengaturan!="") {
         return $pengaturan->isi_pengaturan;
     } else {
         return "";

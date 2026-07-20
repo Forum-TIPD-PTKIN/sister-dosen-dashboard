@@ -2,9 +2,13 @@
 // Usage: php grab_pengabdian.php
 // This script will grab pengabdian data for all SDM using SisterAPI and config.php
 
-require_once __DIR__ . '/backend/inc/config.php';
-require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/../backend/inc/config.php';
+require_once __DIR__ . '/../includes/config.php';
 
+if (!isset($api) || !$api instanceof SisterAPI) {
+    $api = new SisterAPI();
+    $api->authenticate();
+}
 
 // Get all id_sdm from tb_ref_sdm
 $sdm_result = $db->query("SELECT id_sdm FROM tb_ref_sdm");
@@ -28,6 +32,7 @@ foreach ($sdm_result as $sdm_row) {
     }
 
     $inserted = 0;
+    $db->query("DELETE FROM tb_data_pengabdian WHERE id_sdm = ?", [$id_sdm]);
     foreach ($pengabdian as $row) {
         $id_pengabdian = $row['id'] ?? '';
         $judul = $row['judul'] ?? '';

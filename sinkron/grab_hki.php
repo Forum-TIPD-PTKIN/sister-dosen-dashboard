@@ -2,8 +2,13 @@
 // Usage: php grab_hki.php
 // This script will grab kekayaan intelektual (HKI) data for all SDM using SisterAPI and config.php
 
-require_once __DIR__ . '/backend/inc/config.php';
-require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/../backend/inc/config.php';
+require_once __DIR__ . '/../includes/config.php';
+
+if (!isset($api) || !$api instanceof SisterAPI) {
+    $api = new SisterAPI();
+    $api->authenticate();
+}
 
 // Get all id_sdm from tb_ref_sdm
 $sdm_result = $db->query("SELECT id_sdm FROM tb_ref_sdm");
@@ -31,6 +36,7 @@ foreach ($sdm_rows as $sdm_row) {
     }
 
     $inserted = 0;
+    $db->query("DELETE FROM tb_data_hki WHERE id_sdm = ?", [$id_sdm]);
     foreach ($hki as $row) {
         $id_hki = $row['id'] ?? '';
         $kategori_kegiatan = $row['kategori_kegiatan'] ?? '';

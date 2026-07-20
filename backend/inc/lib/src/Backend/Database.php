@@ -24,7 +24,11 @@ class Database
         try {
             $this->pdo = new PDO("mysql:host=" . $hostname . ";dbname=" . $db_name . ";port=" . $port_number, $username_db, $password_db);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->pdo->setAttribute(PDO::MYSQL_ATTR_INIT_COMMAND, "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
+            $initCommandAttribute = defined('Pdo\Mysql::ATTR_INIT_COMMAND')
+                ? constant('Pdo\Mysql::ATTR_INIT_COMMAND')
+                : PDO::MYSQL_ATTR_INIT_COMMAND;
+            $this->pdo->setAttribute($initCommandAttribute, "SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
+            $this->pdo->exec("SET SESSION sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
 
         }
         catch (\PDOException $e) {

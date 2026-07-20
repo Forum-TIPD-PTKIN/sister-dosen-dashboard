@@ -2,13 +2,13 @@
 // Usage: php grab_publikasi.php
 // This script will grab publikasi data for all SDM using SisterAPI and config.php
 
-require_once __DIR__ . '/backend/inc/config.php';
-require_once __DIR__ . '/includes/config.php';
-require_once __DIR__ . '/includes/SisterAPI.php';
+require_once __DIR__ . '/../backend/inc/config.php';
+require_once __DIR__ . '/../includes/config.php';
 
-// Inisialisasi dan autentikasi API SISTER
-$api = new SisterAPI();
-$api->authenticate();
+if (!isset($api) || !$api instanceof SisterAPI) {
+    $api = new SisterAPI();
+    $api->authenticate();
+}
 
 // Get all id_sdm from tb_ref_sdm
 $sdm_result = $db->query("SELECT id_sdm FROM tb_ref_sdm");
@@ -32,6 +32,7 @@ foreach ($sdm_result as $sdm_row) {
     }
 
     $inserted = 0;
+    $db->query("DELETE FROM tb_data_publikasi WHERE id_sdm = ?", [$id_sdm]);
     foreach ($publikasi as $row) {
         $id_kategori_kegiatan = $row['id_kategori_kegiatan'] ?? 0;
         $a_klaim_bkd = isset($row['a_klaim_bkd']) ? (int)$row['a_klaim_bkd'] : 0;

@@ -127,3 +127,80 @@ table.table-bordered.dataTable {
     border-style: solid;
     border-color: rgb(244, 67, 54) rgba(34, 36, 38, 0.15) rgb(17, 17, 17);
 }
+/* Responsive Container & Layout Harmonization for Horizontal Top Navigation */
+.layout-top-nav .content-wrapper,
+.layout-top-nav .main-footer {
+  background-color: #ecf0f5;
+}
+
+.layout-top-nav .content-wrapper > .content,
+.layout-top-nav .content-wrapper > .content-header,
+.layout-top-nav .main-footer > .footer-inner {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+  .layout-top-nav .content-wrapper > .content,
+  .layout-top-nav .content-wrapper > .content-header,
+  .layout-top-nav .main-footer > .footer-inner {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .layout-top-nav .content-wrapper > .content,
+  .layout-top-nav .content-wrapper > .content-header,
+  .layout-top-nav .main-footer > .footer-inner {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .layout-top-nav .content-wrapper > .content,
+  .layout-top-nav .content-wrapper > .content-header,
+  .layout-top-nav .main-footer > .footer-inner {
+    width: 1170px;
+  }
+}
+
+/* Modern Card Box Styling for AdminLTE */
+.box {
+  border-top: 3px solid #2f913e;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  margin-bottom: 25px;
+}
+
+.box .box-header {
+  padding: 15px 20px 10px;
+}
+
+.box .box-body {
+  padding: 15px 20px 20px;
+}
+
+/* DataTables polish */
+div.dataTables_wrapper .dataTables_processing {
+  background: rgba(47, 145, 62, 0.92);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+  margin-top: -25px;
+}
+
+table.dataTable thead th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+  border-bottom: 2px solid #e2e8f0 !important;
+}
+
+table.dataTable tbody td {
+  vertical-align: middle;
+}

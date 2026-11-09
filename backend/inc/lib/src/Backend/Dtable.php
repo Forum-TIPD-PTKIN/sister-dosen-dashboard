@@ -183,17 +183,17 @@ class DTable extends Database
             $last_order_by = "";
         }*/
 
-        if (isset($this->request['order']) && $this->is_numbering==false) {
-            $do_order_by = "ORDER BY ".$columns[$this->request['order'][0]['column']];
-            $do_order_type = $this->request['order'][0]['dir'];
-            $do_order = $do_order_by.' '.$do_order_type;
-         } elseif (isset($this->request['order']) && $this->is_numbering==true && $this->request['order'][0]['column']!=0) {
-            $do_order_by = "ORDER BY ".$columns[$this->request['order'][0]['column']-1];
-            $do_order_type = $this->request['order'][0]['dir'];
-            $do_order = $do_order_by.' '.$do_order_type;
-         }
+        if (!empty($this->request['order']) && isset($this->request['order'][0]['column'])) {
+            $col_idx = (int)$this->request['order'][0]['column'];
+            $dir = isset($this->request['order'][0]['dir']) && strtolower($this->request['order'][0]['dir']) === 'desc' ? 'desc' : 'asc';
+            if ($this->is_numbering==false && isset($columns[$col_idx])) {
+                $do_order = "ORDER BY ".$columns[$col_idx].' '.$dir;
+            } elseif ($this->is_numbering==true && $col_idx!=0 && isset($columns[$col_idx-1])) {
+                $do_order = "ORDER BY ".$columns[$col_idx-1].' '.$dir;
+            }
+        }
 
-         return $do_order;
+        return $do_order;
         
     }
 
@@ -221,7 +221,7 @@ class DTable extends Database
         $this->request = $requestData;
 
 
-             $offset       = $requestData['start'];
+             $offset       = isset($requestData['start']) ? (int)$requestData['start'] : 0;
              $offsets      = $offset ? $offset : 0;
              $this->offset = $offsets;
 
@@ -322,10 +322,13 @@ class DTable extends Database
 
             //$result = $sql;
 
-            if($requestData['length']<0) {
+            if(isset($requestData['length']) && $requestData['length']<0) {
                 $length = "";
+            } elseif(isset($requestData['length'])) {
+                $start = isset($requestData['start']) ? (int)$requestData['start'] : 0;
+                $length = " LIMIT " . $start.",".(int)$requestData['length'];
             } else {
-                $length = " LIMIT " . $requestData['start'].",".$requestData['length'];
+                $length = "";
             }
             $sql .= $length;
 
@@ -367,8 +370,9 @@ class DTable extends Database
     public function createData()
     {
         $data      = $this->data;
+        $draw      = isset($this->request['draw']) ? intval($this->request['draw']) : 0;
         $json_data = array(
-            "draw" => intval($this->request['draw']),
+            "draw" => $draw,
             "recordsTotal" => intval($this->record_total),
             "recordsFiltered" => intval($this->total_filtered),
             "data" => $data // total data array

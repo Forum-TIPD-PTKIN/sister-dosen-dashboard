@@ -56,7 +56,7 @@
         </button>
         <!--toggle bar for responsive end-->
         <a href="<?=base_index();?>" class="navbar-brand visible-xs-inline-block" style="margin-left:10px;float:left;">
-          <img src="<?=getPengaturan('logo'); ?>" alt="" style="width:32px;display:inline-block;vertical-align:middle;"> <span style="vertical-align:middle;">PMB</span>
+          <img src="<?=getPengaturan('logo'); ?>" alt="" style="width:32px;display:inline-block;vertical-align:middle;"> <span style="vertical-align:middle;">SISTER</span>
         </a>
       </div>
       <div class="collapse navbar-collapse" id="main-navigations">

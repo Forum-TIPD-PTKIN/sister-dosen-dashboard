@@ -153,11 +153,31 @@ function dump($data) {
     echo "</pre>";
 }
 
+function get_protocol()
+{
+    if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+        return 'https://';
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower($_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https') {
+        return 'https://';
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED_SSL']) && strtolower($_SERVER['HTTP_X_FORWARDED_SSL']) === 'on') {
+        return 'https://';
+    }
+    if (!empty($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], '"https"') !== false) {
+        return 'https://';
+    }
+    if (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443) {
+        return 'https://';
+    }
+    return 'http://';
+}
+
 //root directory web
 function base_url()
 {
     $root = '';
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $protocol = get_protocol();
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
     $root = $protocol . $host;
     if (DIR_MAIN != '') {
@@ -172,7 +192,7 @@ function base_url()
 function base_url_api()
 {
     $root = '';
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $protocol = get_protocol();
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
     $root = $protocol . $host;
     $root .= "/" . DIR_API . "/";
@@ -183,7 +203,7 @@ function base_url_api()
 function base_url_front()
 {
     $root = '';
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $protocol = get_protocol();
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
     $root = $protocol . $host;
     if (DIR_MAIN != '') {
@@ -198,7 +218,7 @@ function base_url_front()
 function base_admin()
 {
     $root = '';
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $protocol = get_protocol();
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
     $root = $protocol . $host;
     if (DIR_MAIN != '') {
@@ -213,7 +233,7 @@ function base_admin()
 function base_index()
 {
     $root = '';
-    $protocol = isset($_SERVER["HTTPS"]) ? 'https://' : 'http://';
+    $protocol = get_protocol();
     $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
     $root = $protocol . $host;
     if (DIR_MAIN != '') {

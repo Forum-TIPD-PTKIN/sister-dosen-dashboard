@@ -1,10 +1,10 @@
 </div> <!--content wrapper -->
-<footer class="main-footer">
+<footer class="main-footer"><div class="footer-inner">
   <div class="pull-right hidden-xs">
     <b>Version</b> 2.0
   </div>
   <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
-</footer>
+</div></footer>
 </div><!-- ./wrapper -->
 <script src="<?=base_admin();?>assets/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
 <script src="<?=base_admin();?>assets/plugins/nestedSortable/jquery.mjs.nestedSortable.js" type="text/javascript"></script>

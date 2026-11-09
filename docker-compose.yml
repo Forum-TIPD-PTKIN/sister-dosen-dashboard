@@ -24,9 +24,11 @@ services:
       - ./index.php:/var/www/html/index.php
       - ./dashboard.php:/var/www/html/dashboard.php
       - ./login.php:/var/www/html/login.php
+      - ./logout.php:/var/www/html/logout.php
       - ./auth:/var/www/html/auth
       - ./sister_hero_banner.png:/var/www/html/sister_hero_banner.png
       - ./backend/login.php:/var/www/html/backend/login.php
+      - ./backend:/var/www/html/backend
       - ./backend/assets/plugins/kcfinder/conf/config.php:/var/www/html/backend/assets/plugins/kcfinder/conf/config.php
       - ./docker/nginx.conf:/etc/nginx/http.d/default.conf
       - ./docker/php.ini:/usr/local/etc/php/conf.d/custom.ini

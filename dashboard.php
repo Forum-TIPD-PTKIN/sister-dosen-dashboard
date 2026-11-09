@@ -167,14 +167,40 @@ function getStatusBadgeColor($status) {
 </head>
 <body>
     <nav class="navbar navbar-expand-lg" style="background: #24774a !important; box-shadow: 0 2px 8px rgba(36,119,74,0.08); border-bottom: 1px solid #24774a;">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
-                <img src="<?=getPengaturan('logo');?>" alt="UIN Syekh Ali Hasan Ahmad Addary Padangsidimpuan" style="height:47px; width:auto; border-radius:8px; box-shadow:0 2px 8px rgba(36,119,74,0.18); background:#fff; padding:2px;">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="index.php">
+                <img src="<?=getPengaturan('logo');?>" alt="Logo" style="height:47px; width:auto; border-radius:8px; box-shadow:0 2px 8px rgba(36,119,74,0.18); background:#fff; padding:2px;">
                 <div class="d-flex flex-column">
                     <span style="font-weight:700; font-size:1.2rem; color:#fff; letter-spacing:0.5px; text-shadow:0 1px 4px rgba(36,119,74,0.18);"><?=getPengaturan('app_name');?></span>
-                    <span style="font-size:1rem; color:#eaf0fa; font-weight:600; letter-spacing:0.3px; text-shadow:0 1px 4px rgba(36,119,74,0.18);"><?=getPengaturan('nama_kampus');?></span>
+                    <span style="font-size:0.95rem; color:#eaf0fa; font-weight:600; letter-spacing:0.3px; text-shadow:0 1px 4px rgba(36,119,74,0.18);"><?=getPengaturan('nama_kampus');?></span>
                 </div>
             </a>
+
+            <!-- Right Menu / Auth Buttons -->
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <?php if (isset($_SESSION['login']) && $_SESSION['login'] == 1): ?>
+                    <a href="backend/index.php" class="btn btn-sm btn-light fw-bold text-success shadow-sm" style="border-radius: 20px; padding: 6px 14px;">
+                        <i class="fas fa-cogs me-1"></i> Panel Admin
+                    </a>
+                <?php endif; ?>
+
+                <?php if (isset($_SESSION['sister_token']) || (isset($_SESSION['login']) && $_SESSION['login'] == 1)): ?>
+                    <span class="badge bg-white text-dark d-none d-md-inline-flex align-items-center gap-1.5 shadow-sm" style="border-radius: 20px; padding: 7px 12px; font-weight: 600; font-size: 0.8rem;">
+                        <span class="rounded-circle bg-success" style="width: 8px; height: 8px; display: inline-block;"></span>
+                        <?= htmlspecialchars($_SESSION['user_role'] ?? $_SESSION['username'] ?? 'Demo SISTER') ?>
+                    </span>
+                    <a href="login.php" class="btn btn-sm btn-outline-light" style="border-radius: 20px; padding: 6px 14px; font-weight: 600;" title="Ganti akun atau login kembali">
+                        <i class="fas fa-user-circle me-1"></i> Ganti Akun / Login
+                    </a>
+                    <a href="logout.php" class="btn btn-sm btn-danger shadow-sm" style="border-radius: 20px; padding: 6px 14px; font-weight: 600;">
+                        <i class="fas fa-sign-out-alt me-1"></i> Logout
+                    </a>
+                <?php else: ?>
+                    <a href="login.php" class="btn btn-sm btn-light fw-bold text-success shadow-sm" style="border-radius: 20px; padding: 6px 16px;">
+                        <i class="fas fa-sign-in-alt me-1"></i> Login / Masuk
+                    </a>
+                <?php endif; ?>
+            </div>
         </div>
     </nav>
 

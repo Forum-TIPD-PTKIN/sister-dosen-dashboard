@@ -43,7 +43,7 @@ CREATE TABLE `data_pribadi` (
   `data` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE `fakultas` (
   `web` varchar(50) DEFAULT NULL,
   `dekan` int DEFAULT NULL,
   `kode_nim` varchar(5) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `fakultas`
@@ -91,7 +91,7 @@ CREATE TABLE `inpassing` (
   `data` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -108,7 +108,7 @@ CREATE TABLE `mahasiswa_pddikti` (
   `data` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,7 +129,7 @@ CREATE TABLE `pendidikan_formal` (
   `data` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ CREATE TABLE `penugasan` (
   `data` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,7 @@ CREATE TABLE `pt_id` (
   `pt_id` varchar(200) NOT NULL,
   `data_detail` json NOT NULL,
   `created_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `pt_id`
@@ -185,7 +185,7 @@ CREATE TABLE `s3_storage` (
   `key` varchar(200) NOT NULL,
   `secret` varchar(200) NOT NULL,
   `max_size` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `s3_storage`
@@ -208,7 +208,7 @@ CREATE TABLE `sys_group_users` (
   `deskripsi` varchar(50) DEFAULT NULL,
   `akses_prodi` text,
   `is_show` enum('Y','N') DEFAULT 'Y'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_group_users`
@@ -229,7 +229,7 @@ CREATE TABLE `sys_lang` (
   `language` varchar(50) NOT NULL,
   `description` varchar(50) NOT NULL,
   `status` enum('Active','Not Active') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_lang`
@@ -259,7 +259,7 @@ CREATE TABLE `sys_menu` (
   `tampil` enum('Y','N') NOT NULL,
   `type_menu` enum('main','page','separator') NOT NULL,
   `hide` enum('N','Y') NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_menu`
@@ -299,7 +299,7 @@ CREATE TABLE `sys_menu_role` (
   `update_act` enum('Y','N') DEFAULT NULL,
   `delete_act` enum('Y','N') DEFAULT NULL,
   `import_act` enum('Y','N') DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_menu_role`
@@ -353,7 +353,7 @@ CREATE TABLE `sys_services` (
   `page_name` varchar(150) DEFAULT NULL,
   `url` varchar(100) DEFAULT NULL,
   `main_table` varchar(150) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 --
 -- Dumping data untuk tabel `sys_services`
@@ -375,7 +375,7 @@ CREATE TABLE `sys_setting` (
   `setting_content` mediumtext NOT NULL,
   `short_content` varchar(50) NOT NULL,
   `setting_type` enum('text','image','radio') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_setting`
@@ -403,7 +403,7 @@ CREATE TABLE `sys_token` (
   `create_access` mediumtext,
   `update_access` mediumtext,
   `delete_access` mediumtext
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_token`
@@ -431,7 +431,7 @@ CREATE TABLE `sys_users` (
   `photo_changed` enum('Y','N') DEFAULT 'N',
   `token` varchar(150) DEFAULT NULL,
   `token_expiration` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `sys_users`
@@ -455,7 +455,7 @@ CREATE TABLE `tb_data_hki` (
   `bidang_keilmuan` json DEFAULT NULL,
   `jenis_publikasi` varchar(100) NOT NULL,
   `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -465,14 +465,14 @@ CREATE TABLE `tb_data_hki` (
 
 CREATE TABLE `tb_data_penelitian` (
   `id` int NOT NULL,
-  `id_penelitian` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `id_sdm` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_penelitian` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_sdm` char(40) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `judul` varchar(500) NOT NULL,
   `bidang_keilmuan` json DEFAULT NULL,
   `tahun_pelaksanaan` year NOT NULL,
   `lama_kegiatan` int NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -483,11 +483,11 @@ CREATE TABLE `tb_data_penelitian` (
 CREATE TABLE `tb_data_pengabdian` (
   `id` char(36) NOT NULL,
   `judul` varchar(255) NOT NULL,
-  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `bidang_keilmuan` json DEFAULT NULL,
   `tahun_pelaksanaan` year NOT NULL,
   `lama_kegiatan` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -498,7 +498,7 @@ CREATE TABLE `tb_data_pengabdian` (
 CREATE TABLE `tb_data_publikasi` (
   `id` int NOT NULL,
   `id_kategori_kegiatan` int NOT NULL,
-  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `a_klaim_bkd` tinyint(1) NOT NULL DEFAULT '0',
   `wkt_klaim_bkd` datetime DEFAULT NULL,
   `judul` varchar(500) NOT NULL,
@@ -509,7 +509,7 @@ CREATE TABLE `tb_data_publikasi` (
   `asal_data` varchar(100) NOT NULL,
   `bidang_keilmuan` json DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -526,7 +526,7 @@ CREATE TABLE `tb_master_fakultas` (
   `tipe_signature` varchar(50) DEFAULT NULL,
   `jabatan_signature` varchar(50) DEFAULT NULL,
   `image_signature` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_master_fakultas`
@@ -560,7 +560,7 @@ CREATE TABLE `tb_master_jurusan` (
   `tanggal_berdiri` date DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `updated_date` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_master_jurusan`
@@ -609,7 +609,7 @@ CREATE TABLE `tb_master_pengaturan_umum` (
   `type_pengaturan` enum('text','image','radio','extend','sosmed','link') NOT NULL,
   `isi_extend` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin,
   `tampil` enum('Y','N') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_master_pengaturan_umum`
@@ -630,13 +630,13 @@ INSERT INTO `tb_master_pengaturan_umum` (`id_pengaturan`, `nama_pengaturan`, `sh
 
 CREATE TABLE `tb_reference_data` (
   `id` int NOT NULL,
-  `reference_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `reference_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `reference_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `reference_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `data` json NOT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci GENERATED ALWAYS AS (json_unquote(json_extract(`data`,_utf8mb4'$.nama'))) VIRTUAL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci GENERATED ALWAYS AS (json_unquote(json_extract(`data`,_utf8mb4'$.nama'))) VIRTUAL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -645,17 +645,17 @@ CREATE TABLE `tb_reference_data` (
 --
 
 CREATE TABLE `tb_ref_sdm` (
-  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `nama_sdm` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `id_sdm` varchar(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `nama_sdm` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `nidn` varchar(200) DEFAULT NULL,
   `nip` varchar(200) DEFAULT NULL,
   `nuptk` varchar(200) DEFAULT NULL,
-  `nama_status_aktif` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `nama_status_pegawai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `jenis_sdm` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `nama_status_aktif` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nama_status_pegawai` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `jenis_sdm` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -664,11 +664,11 @@ CREATE TABLE `tb_ref_sdm` (
 --
 
 CREATE TABLE `tb_ref_sdm_jabatan_fungsional` (
-  `id_sdm` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `jabatan_fungsional` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `sk` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `tanggal_mulai` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id_sdm` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `jabatan_fungsional` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `sk` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal_mulai` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -680,7 +680,7 @@ CREATE TABLE `tb_ref_sdm_pendidikan` (
   `id_sdm` varchar(200) NOT NULL,
   `jenjang_pendidikan` varchar(10) NOT NULL,
   `datas` json NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -691,7 +691,7 @@ CREATE TABLE `tb_ref_sdm_pendidikan` (
 CREATE TABLE `tb_ref_sdm_penugasan` (
   `id_sdm` varchar(100) NOT NULL,
   `unit_kerja` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -706,7 +706,7 @@ CREATE TABLE `tb_ref_unit` (
   `detail_unit` json DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -718,10 +718,10 @@ CREATE TABLE `tb_ref_wilayah` (
   `id` varchar(100) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `id_induk_wilayah` varchar(100) DEFAULT NULL,
-  `id_level_wilayah` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `id_level_wilayah` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -739,7 +739,7 @@ CREATE TABLE `tb_token` (
   `client_id` varchar(150) NOT NULL,
   `redirect_url` varchar(150) NOT NULL,
   `aktif` enum('Y','N') NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `tb_token`
@@ -762,7 +762,7 @@ CREATE TABLE `user_google` (
   `picture` text,
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -850,7 +850,7 @@ CREATE TABLE `view_sdm_pendidikan` (
 --
 DROP TABLE IF EXISTS `view_nama_gelar`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_nama_gelar`  AS SELECT `v`.`id_sdm` AS `id_sdm`, (case when (`v`.`jafung` = 'Profesor') then concat('Prof. ',if((`g`.`gelar_s3` is not null),'Dr. ',''),`v`.`nama_sdm`,if((`g`.`gelar_s2` is not null),concat(', ',`g`.`gelar_s2`),'')) when (`g`.`gelar_s3` is not null) then concat('Dr. ',`v`.`nama_sdm`,if((`g`.`gelar_s2` is not null),concat(', ',`g`.`gelar_s2`),'')) when (`g`.`gelar_s2` is not null) then concat(`v`.`nama_sdm`,if((`g`.`gelar_s1` is not null),concat(', ',`g`.`gelar_s1`),''),', ',`g`.`gelar_s2`) else concat(`v`.`nama_sdm`,', ',`g`.`gelar_s1`) end) AS `nama_dengan_gelar` FROM (`view_sdm` `v` left join (select `tb_ref_sdm_pendidikan`.`id_sdm` AS `id_sdm`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S1') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s1`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S2') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s2`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S3') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s3` from `tb_ref_sdm_pendidikan` group by `tb_ref_sdm_pendidikan`.`id_sdm`) `g` on((`v`.`id_sdm` = `g`.`id_sdm`))) ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `view_nama_gelar`  AS SELECT `v`.`id_sdm` AS `id_sdm`, (case when (`v`.`jafung` = 'Profesor') then concat('Prof. ',if((`g`.`gelar_s3` is not null),'Dr. ',''),`v`.`nama_sdm`,if((`g`.`gelar_s2` is not null),concat(', ',`g`.`gelar_s2`),'')) when (`g`.`gelar_s3` is not null) then concat('Dr. ',`v`.`nama_sdm`,if((`g`.`gelar_s2` is not null),concat(', ',`g`.`gelar_s2`),'')) when (`g`.`gelar_s2` is not null) then concat(`v`.`nama_sdm`,if((`g`.`gelar_s1` is not null),concat(', ',`g`.`gelar_s1`),''),', ',`g`.`gelar_s2`) else concat(`v`.`nama_sdm`,', ',`g`.`gelar_s1`) end) AS `nama_dengan_gelar` FROM (`view_sdm` `v` left join (select `tb_ref_sdm_pendidikan`.`id_sdm` AS `id_sdm`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S1') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s1`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S2') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s2`,max((case when (`tb_ref_sdm_pendidikan`.`jenjang_pendidikan` = 'S3') then json_unquote(json_extract(`tb_ref_sdm_pendidikan`.`datas`,'$.gelar_akademik')) end)) AS `gelar_s3` from `tb_ref_sdm_pendidikan` group by `tb_ref_sdm_pendidikan`.`id_sdm`) `g` on((`v`.`id_sdm` = `g`.`id_sdm`))) ;
 
 -- --------------------------------------------------------
 
@@ -859,7 +859,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_sdm`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_sdm`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, `tr`.`nidn` AS `nidn`, `tr`.`nip` AS `nip`, `tr`.`nuptk` AS `nuptk`, `tr`.`nama_status_aktif` AS `nama_status_aktif`, `tr`.`nama_status_pegawai` AS `nama_status_pegawai`, `tr`.`jenis_sdm` AS `jenis_sdm`, `tr`.`created_at` AS `created_at`, `tr`.`updated_at` AS `updated_at`, (select `vs`.`pendidikan` from `view_sdm_pendidikan` `vs` where (`tr`.`id_sdm` = `vs`.`id_sdm`) limit 1) AS `pendidikan_terakhir`, (select `vsp`.`unit_kerja` from `tb_ref_sdm_penugasan` `vsp` where (`tr`.`id_sdm` = `vsp`.`id_sdm`) limit 1) AS `home_base`, (select `jf`.`jafung` from `view_sdm_jabatan_fungsional` `jf` where (`tr`.`id_sdm` = `jf`.`id_sdm`) limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `view_sdm`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, `tr`.`nidn` AS `nidn`, `tr`.`nip` AS `nip`, `tr`.`nuptk` AS `nuptk`, `tr`.`nama_status_aktif` AS `nama_status_aktif`, `tr`.`nama_status_pegawai` AS `nama_status_pegawai`, `tr`.`jenis_sdm` AS `jenis_sdm`, `tr`.`created_at` AS `created_at`, `tr`.`updated_at` AS `updated_at`, (select `vs`.`pendidikan` from `view_sdm_pendidikan` `vs` where (`tr`.`id_sdm` = `vs`.`id_sdm`) limit 1) AS `pendidikan_terakhir`, (select `vsp`.`unit_kerja` from `tb_ref_sdm_penugasan` `vsp` where (`tr`.`id_sdm` = `vsp`.`id_sdm`) limit 1) AS `home_base`, (select `jf`.`jafung` from `view_sdm_jabatan_fungsional` `jf` where (`tr`.`id_sdm` = `jf`.`id_sdm`) limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
 
 -- --------------------------------------------------------
 
@@ -868,7 +868,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_sdm_details`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_sdm_details`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, `tr`.`nidn` AS `nidn`, `tr`.`nip` AS `nip`, `tr`.`nuptk` AS `nuptk`, `tr`.`nama_status_aktif` AS `nama_status_aktif`, `tr`.`nama_status_pegawai` AS `nama_status_pegawai`, `tr`.`jenis_sdm` AS `jenis_sdm`, `tr`.`created_at` AS `created_at`, `tr`.`updated_at` AS `updated_at`, (select `vs`.`pendidikan` from `view_sdm_pendidikan` `vs` where (`tr`.`id_sdm` = `vs`.`id_sdm`) limit 1) AS `pendidikan_terakhir`, (select `vsp`.`unit_kerja` from `tb_ref_sdm_penugasan` `vsp` where (`tr`.`id_sdm` = `vsp`.`id_sdm`) limit 1) AS `home_base`, (select `jf`.`jafung` from `view_sdm_jabatan_fungsional` `jf` where (`tr`.`id_sdm` = `jf`.`id_sdm`) limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `view_sdm_details`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, `tr`.`nidn` AS `nidn`, `tr`.`nip` AS `nip`, `tr`.`nuptk` AS `nuptk`, `tr`.`nama_status_aktif` AS `nama_status_aktif`, `tr`.`nama_status_pegawai` AS `nama_status_pegawai`, `tr`.`jenis_sdm` AS `jenis_sdm`, `tr`.`created_at` AS `created_at`, `tr`.`updated_at` AS `updated_at`, (select `vs`.`pendidikan` from `view_sdm_pendidikan` `vs` where (`tr`.`id_sdm` = `vs`.`id_sdm`) limit 1) AS `pendidikan_terakhir`, (select `vsp`.`unit_kerja` from `tb_ref_sdm_penugasan` `vsp` where (`tr`.`id_sdm` = `vsp`.`id_sdm`) limit 1) AS `home_base`, (select `jf`.`jafung` from `view_sdm_jabatan_fungsional` `jf` where (`tr`.`id_sdm` = `jf`.`id_sdm`) limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
 
 -- --------------------------------------------------------
 
@@ -877,7 +877,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_sdm_jabatan_fungsional`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_sdm_jabatan_fungsional`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, (select `tb_ref_sdm_jabatan_fungsional`.`jabatan_fungsional` from `tb_ref_sdm_jabatan_fungsional` where (`tb_ref_sdm_jabatan_fungsional`.`id_sdm` = `tr`.`id_sdm`) order by `tb_ref_sdm_jabatan_fungsional`.`tanggal_mulai` desc limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `view_sdm_jabatan_fungsional`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, (select `tb_ref_sdm_jabatan_fungsional`.`jabatan_fungsional` from `tb_ref_sdm_jabatan_fungsional` where (`tb_ref_sdm_jabatan_fungsional`.`id_sdm` = `tr`.`id_sdm`) order by `tb_ref_sdm_jabatan_fungsional`.`tanggal_mulai` desc limit 1) AS `jafung` FROM `tb_ref_sdm` AS `tr` ;
 
 -- --------------------------------------------------------
 
@@ -886,7 +886,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_sdm_pendidikan`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_sdm_pendidikan`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, (select `tb_ref_sdm_pendidikan`.`jenjang_pendidikan` from `tb_ref_sdm_pendidikan` where (`tb_ref_sdm_pendidikan`.`id_sdm` = `tr`.`id_sdm`) order by `tb_ref_sdm_pendidikan`.`jenjang_pendidikan` desc limit 1) AS `pendidikan` FROM `tb_ref_sdm` AS `tr` ;
+CREATE ALGORITHM=UNDEFINED  SQL SECURITY DEFINER VIEW `view_sdm_pendidikan`  AS SELECT `tr`.`id_sdm` AS `id_sdm`, `tr`.`nama_sdm` AS `nama_sdm`, (select `tb_ref_sdm_pendidikan`.`jenjang_pendidikan` from `tb_ref_sdm_pendidikan` where (`tb_ref_sdm_pendidikan`.`id_sdm` = `tr`.`id_sdm`) order by `tb_ref_sdm_pendidikan`.`jenjang_pendidikan` desc limit 1) AS `pendidikan` FROM `tb_ref_sdm` AS `tr` ;
 
 --
 -- Indexes for dumped tables

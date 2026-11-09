@@ -1,0 +1,62 @@
+services:
+  sister_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sister_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8095}:80"
+    env_file:
+      - .env
+    environment:
+      - DB_HOST=sister_db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_DATABASE:-sister_api}
+      - DB_USERNAME=${DB_USERNAME:-sister_user}
+      - DB_PASSWORD=${DB_PASSWORD:-sister_pass_secure_2026}
+    volumes:
+      - ./cache:/var/www/html/cache
+      - ./upload:/var/www/html/upload
+      - ./includes/config.php:/var/www/html/includes/config.php
+      - ./backend/inc/config.php:/var/www/html/backend/inc/config.php
+      - ./.env:/var/www/html/.env
+      - ./index.php:/var/www/html/index.php
+      - ./dashboard.php:/var/www/html/dashboard.php
+      - ./login.php:/var/www/html/login.php
+      - ./auth:/var/www/html/auth
+      - ./sister_hero_banner.png:/var/www/html/sister_hero_banner.png
+      - ./backend/login.php:/var/www/html/backend/login.php
+      - ./backend/assets/plugins/kcfinder/conf/config.php:/var/www/html/backend/assets/plugins/kcfinder/conf/config.php
+      - ./docker/nginx.conf:/etc/nginx/http.d/default.conf
+      - ./docker/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    depends_on:
+      sister_db:
+        condition: service_healthy
+    networks:
+      - sister_network
+
+  sister_db:
+    image: mariadb:11.4
+    container_name: sister_db
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-sister_root_pass_2026}
+      MARIADB_DATABASE: ${DB_DATABASE:-sister_api}
+      MARIADB_USER: ${DB_USERNAME:-sister_user}
+      MARIADB_PASSWORD: ${DB_PASSWORD:-sister_pass_secure_2026}
+    volumes:
+      - ./db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mariadb-admin", "ping", "-h", "127.0.0.1", "-u", "root", "-p${DB_ROOT_PASSWORD:-sister_root_pass_2026}"]
+      interval: 5s
+      timeout: 5s
+      retries: 15
+      start_period: 15s
+    networks:
+      - sister_network
+
+networks:
+  sister_network:
+    name: sister_network
+    driver: bridge

@@ -28,6 +28,49 @@ if (!isset($_SESSION['login'])) {
             <img src="<?=getPengaturan('logo');?>" alt="Logo" style="border-radius:50%;background:#fff;object-fit:contain;box-shadow:0 2px 8px rgba(0,0,0,0.10);">
         </div>
         <div class="metro-login-title">Sign in to <?=getPengaturan('app_name');?></div>
+
+        <!-- Kartu Akun Demo -->
+        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f8fafc 100%); border: 1px solid #a7f3d0; border-radius: 12px; padding: 10px; margin-bottom: 15px; width: 100%; box-sizing: border-box;">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <span style="display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 50%; background: #059669; color: white; font-size: 9px; font-weight: 900;">⚡</span>
+                    <span style="font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #064e3b;">Akses Cepat Akun Demo</span>
+                </div>
+                <span style="font-size: 9px; color: #059669; background: #d1fae5; padding: 1px 6px; border-radius: 10px; font-weight: 600;">Klik untuk Isi</span>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr; gap: 6px;">
+                <div onclick="fillBackendDemo('admin', 'admin123')" style="padding: 8px 10px; background: #ffffff; border: 1px solid #d1fae5; border-radius: 8px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.borderColor='#10b981'" onmouseout="this.style.borderColor='#d1fae5'">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+                            <span style="font-size: 11px; font-weight: 700; color: #1e293b;">Super Admin</span>
+                        </div>
+                        <span style="font-size: 9px; font-weight: 700; color: #059669;">Pakai &rarr;</span>
+                    </div>
+                    <div style="font-size: 10px; color: #64748b; font-family: monospace; margin-top: 2px;">
+                        admin / admin123
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function fillBackendDemo(u, p) {
+                var uEl = document.getElementById('username');
+                var pEl = document.getElementById('password');
+                if (uEl && pEl) {
+                    uEl.value = u;
+                    pEl.value = p;
+                    uEl.focus();
+                    uEl.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.4)';
+                    pEl.style.boxShadow = '0 0 0 3px rgba(16, 185, 129, 0.4)';
+                    setTimeout(function() {
+                        uEl.style.boxShadow = '';
+                        pEl.style.boxShadow = '';
+                    }, 1000);
+                }
+            }
+        </script>
+
         <form class="form-signin">
             <input type="text" id="username" class="form-control" placeholder="Username" required autofocus autocomplete="username">
             <input type="password" id="password" class="form-control" placeholder="Password" required autocomplete="current-password">

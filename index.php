@@ -10,6 +10,12 @@ switch (uri_segment(0)) {
 	case '':
 		include "dashboard.php";
 		break;
+	case 'login':
+		include "login.php";
+		break;
+	case 'logout':
+		include "logout.php";
+		break;
 	case 'detail':
         $id_sdm = $uri1;
         $dosen = $db->fetchSingleRow('view_sdm', 'id_sdm', $id_sdm);

@@ -21,7 +21,7 @@ $_CONFIG = array(
 
 // GENERAL SETTINGS
 
-    'disabled' => false,
+    'disabled' => true,
     'uploadURL' => "../../../../upload/web_foto_upload/",
     'uploadDir' => "../../../../upload/web_foto_upload/",
     'uploadDir' => "",

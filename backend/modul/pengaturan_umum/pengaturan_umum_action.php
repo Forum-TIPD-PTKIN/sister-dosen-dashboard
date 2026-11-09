@@ -82,60 +82,79 @@ case "up":
     $auth = $db->fetchSingleRow("s3_storage","type",'profil');
 
     if ($_POST['type_pengaturan']=='image') {
-        if(isset($_FILES["gambar"]["name"])) {
-            $bucket = $auth->bucket;
+        if(isset($_FILES["gambar"]["name"]) && !empty($_FILES["gambar"]["tmp_name"])) {
+            $uploaded_url = null;
+            $has_valid_s3 = (!empty($auth) && !empty($auth->bucket) && $auth->bucket !== 'BUCKET-NAME' && !empty($auth->key) && $auth->key !== 'KEY');
 
-            $endpoint = $auth->url;
-            
-            $s3 = new Aws\S3\S3Client([
-            
-                "version" => "latest",
-            
-                "region" => "idn",
-                'scheme' =>'http',
-            
-                "endpoint" => $endpoint,
-            
-                "use_path_style_endpoint" => true,
-            
-                "credentials" => [
-            
-                    "key" => $auth->key,
-            
-                    "secret" => $auth->secret,
-            
-                ],
-            
-            ]);
-        
-        $filename = $_FILES["gambar"]["name"];
-        $filename = preg_replace("#[^a-z.0-9]#i", "", $filename); 
-        $ex = explode(".", $filename); // split filename
-        $fileExt = end($ex); // ekstensi akhir
-        $filename = time().rand().".".$fileExt;//rename nama file';
-            
-            $result = $s3->putObject([
-            
-                "Bucket" => $bucket,
-            
-                "Key" => $filename,
-            
-                "Body" => "this is the body!",
-            
-                // you can use relative
-                // "SourceFile" => "./aws-sdk-php-v3-developer-guide.pdf",
-            
-                // or absolute path
-                "SourceFile" => $_FILES["gambar"]["tmp_name"],
-            
-                "ContentType" => $_FILES["gambar"]["type"],
-                'ACL'    => 'public-read',
-            
-            ]);
-    
+            if ($has_valid_s3) {
+                try {
+                    $bucket = $auth->bucket;
+                    $endpoint = $auth->url;
+
+                    $s3 = new Aws\S3\S3Client([
+                        "version" => "latest",
+                        "region" => "idn",
+                        'scheme' =>'https',
+                        "endpoint" => $endpoint,
+                        "use_path_style_endpoint" => true,
+                        "credentials" => [
+                            "key" => $auth->key,
+                            "secret" => $auth->secret,
+                        ],
+                    ]);
+
+                    $filename = $_FILES["gambar"]["name"];
+                    $filename = preg_replace("#[^a-z.0-9]#i", "", $filename); 
+                    $ex = explode(".", $filename);
+                    $fileExt = strtolower(end($ex));
+                    $filename = time().rand().".".$fileExt;
+
+                    $result = $s3->putObject([
+                        "Bucket" => $bucket,
+                        "Key" => $filename,
+                        "SourceFile" => $_FILES["gambar"]["tmp_name"],
+                        "ContentType" => $_FILES["gambar"]["type"],
+                        'ACL'    => 'public-read',
+                    ]);
+
+                    $uploaded_url = rtrim($endpoint, '/') . '/' . $bucket . '/' . $filename;
+                } catch (\Exception $e) {
+                    $uploaded_url = null;
+                }
+            }
+
+            // Fallback to local storage if S3 is dummy or upload fails
+            if (empty($uploaded_url)) {
+                $target_dir = __DIR__ . '/../../../../upload/pengaturan/';
+                if (!is_dir($target_dir)) {
+                    @mkdir($target_dir, 0775, true);
+                }
+
+                $filename = $_FILES["gambar"]["name"];
+                $filename = preg_replace("#[^a-z.0-9]#i", "", $filename); 
+                $ex = explode(".", $filename);
+                $fileExt = strtolower(end($ex));
+                $safe_name = time() . rand(1000, 9999) . "." . $fileExt;
+                $target_file = $target_dir . $safe_name;
+
+                if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $target_file)) {
+                    $uploaded_url = base_url() . 'upload/pengaturan/' . $safe_name;
+                }
+            }
+
+            if (!empty($uploaded_url)) {
+                $data = array(
+                    "nama_pengaturan" => $_POST["nama_pengaturan"],
+                    "isi_pengaturan" => $uploaded_url
+                );
+            } else {
+                $data = array(
+                    "nama_pengaturan" => $_POST["nama_pengaturan"],
+                );
+            }
+        } else {
             $data = array(
-            "nama_pengaturan" => $_POST["nama_pengaturan"],
-            "isi_pengaturan" => $endpoint.'/'.$bucket.'/'.$filename
+                "nama_pengaturan" => $_POST["nama_pengaturan"],
             );
         }
 

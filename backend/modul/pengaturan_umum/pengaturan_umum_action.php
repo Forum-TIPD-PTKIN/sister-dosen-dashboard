@@ -125,7 +125,8 @@ case "up":
 
             // Fallback to local storage if S3 is dummy or upload fails
             if (empty($uploaded_url)) {
-                $target_dir = __DIR__ . '/../../../../upload/pengaturan/';
+                $target_dir = realpath(__DIR__ . '/../../../upload') ?: dirname(dirname(dirname(__DIR__))) . '/upload';
+                $target_dir = rtrim($target_dir, '/') . '/pengaturan/';
                 if (!is_dir($target_dir)) {
                     @mkdir($target_dir, 0775, true);
                 }

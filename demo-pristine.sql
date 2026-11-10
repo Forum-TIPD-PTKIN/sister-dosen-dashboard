@@ -845,9 +845,9 @@ CREATE TABLE `tb_master_pengaturan_umum` (
 LOCK TABLES `tb_master_pengaturan_umum` WRITE;
 /*!40000 ALTER TABLE `tb_master_pengaturan_umum` DISABLE KEYS */;
 INSERT INTO `tb_master_pengaturan_umum` VALUES
-(1,'Logo Kampus','logo','https://is3.cloudhost.id/sidimpuan/17555274961795202471.png','image',NULL,'Y'),
+(1,'Logo Kampus','logo','https://sister.ftipd.org/upload/pengaturan/17942646999753.png','image',NULL,'Y'),
 (13,'app_name','app_name','DASHBOARD DOSEN ','text',NULL,'Y'),
-(14,'nama kampus','nama_kampus','UIN Syekh Ali Hasan Ahmad Addary Padangsidimpuan','text',NULL,'Y'),
+(14,'nama kampus','nama_kampus','UNIVERSITAS FTIPD KEMENAG','text',NULL,'Y'),
 (15,'Favicon','favicon','https://is3.cloudhost.id/sidimpuan/1754571431148243033.png','image',NULL,'Y'),
 (16,'s3 url','s3_url','https://is3.cloudhost.id/storageimporter/','text',NULL,'N');
 /*!40000 ALTER TABLE `tb_master_pengaturan_umum` ENABLE KEYS */;
@@ -1307,4 +1307,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-11-09  4:32:51
+-- Dump completed on 2026-11-09 22:54:29

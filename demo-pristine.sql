@@ -364,7 +364,7 @@ CREATE TABLE `sys_menu` (
   `type_menu` enum('main','page','separator') NOT NULL,
   `hide` enum('N','Y') NOT NULL DEFAULT 'N',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +390,8 @@ INSERT INTO `sys_menu` VALUES
 (77,'publikasi','publikasi','publikasi','tb_data_publikasi','',1,45,1,'Y','Y','page','N'),
 (78,'penelitian','penelitian','penelitian','tb_data_penelitian','',2,45,1,'Y','Y','page','N'),
 (79,'pengabdian','pengabdian','pengabdian','tb_data_pengabdian','',3,45,1,'Y','Y','page','N'),
-(80,'hki','hki','hki','tb_data_hki','',4,45,1,'Y','Y','page','N');
+(80,'hki','hki','hki','tb_data_hki','',4,45,1,'Y','Y','page','N'),
+(81,'pengaturan_api','pengaturan api','pengaturan-api','tb_pengaturan_api','fa-cogs',4,52,1,'N','Y','page','N');
 /*!40000 ALTER TABLE `sys_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -415,7 +416,7 @@ CREATE TABLE `sys_menu_role` (
   KEY `FK_sys_menu_role_sys_users` (`group_level`),
   CONSTRAINT `FK_sys_menu_role_sys_group_users` FOREIGN KEY (`group_level`) REFERENCES `sys_group_users` (`level`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_sys_menu_role_sys_menu` FOREIGN KEY (`id_menu`) REFERENCES `sys_menu` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=342 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=344 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,7 +459,9 @@ INSERT INTO `sys_menu_role` VALUES
 (337,79,'root','Y','Y','Y','Y','Y'),
 (338,79,'administrator','Y','N','N','N',NULL),
 (340,80,'root','Y','Y','Y','Y','Y'),
-(341,80,'administrator','Y','N','N','N',NULL);
+(341,80,'administrator','Y','N','N','N',NULL),
+(342,81,'root','Y','Y','Y','Y','Y'),
+(343,81,'administrator','Y','Y','Y','Y','Y');
 /*!40000 ALTER TABLE `sys_menu_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -851,6 +854,39 @@ INSERT INTO `tb_master_pengaturan_umum` VALUES
 (15,'Favicon','favicon','https://is3.cloudhost.id/sidimpuan/1754571431148243033.png','image',NULL,'Y'),
 (16,'s3 url','s3_url','https://is3.cloudhost.id/storageimporter/','text',NULL,'N');
 /*!40000 ALTER TABLE `tb_master_pengaturan_umum` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tb_pengaturan_api`
+--
+
+DROP TABLE IF EXISTS `tb_pengaturan_api`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tb_pengaturan_api` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `api_base_url` varchar(255) NOT NULL DEFAULT 'https://sister-api.kemdiktisaintek.go.id/ws.php/1.0',
+  `api_sandbox_url` varchar(255) DEFAULT 'https://sister-api.kemdiktisaintek.go.id/ws-sandbox.php/1.0',
+  `user_id` varchar(100) DEFAULT '',
+  `username` varchar(100) DEFAULT '',
+  `password` varchar(255) DEFAULT '',
+  `role` varchar(100) DEFAULT 'Sister-WS Consumer Basic',
+  `mode` enum('production','sandbox') DEFAULT 'production',
+  `token_lifetime` int(11) DEFAULT 3600,
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_uca1400_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tb_pengaturan_api`
+--
+
+LOCK TABLES `tb_pengaturan_api` WRITE;
+/*!40000 ALTER TABLE `tb_pengaturan_api` DISABLE KEYS */;
+INSERT INTO `tb_pengaturan_api` VALUES
+(1,'https://sister-api.kemdiktisaintek.go.id/ws.php/1.0','https://sister-api.kemdiktisaintek.go.id/ws-sandbox.php/1.0','','','','Sister-WS Consumer Basic','production',3600,'2026-11-10 00:55:45');
+/*!40000 ALTER TABLE `tb_pengaturan_api` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1307,4 +1343,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-11-09 22:54:29
+-- Dump completed on 2026-11-15  3:23:20
